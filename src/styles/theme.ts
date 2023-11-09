@@ -26,12 +26,10 @@ const theme = createTheme({
     },
     blood: {
       main: bloodMain,
-      light: alpha(bloodBase, 0.5),
-      dark: alpha(bloodBase, 0.9),
-      contrastText: getContrastRatio(bloodMain, '#fff') > 4.5 ? '#fff' : '#111',
+      text: '#CA2F2F'
     },
     white: {
-      main: "#fff"
+      main: '#fff'
     },
   },
   typography: {

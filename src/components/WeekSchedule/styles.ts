@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
+import Link from "next/link";
 
 export const WeekScheduleContainer = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -26,4 +27,20 @@ export const DayItem = styled(Box)(({ theme }) => ({
   '& + &': {
     borderLeft: `.5px solid #fff`
   }
+}));
+
+export const TeacherName = styled(Link)(({ theme }) => ({
+  color: theme.palette.blood.text,
+  textDecoration: 'none',
+  transition: '.3s',
+
+  ':hover': {
+    color: alpha(theme.palette.blood.text, 0.6),
+    textDecoration: 'underline'
+  }
+}));
+
+export const TextContainer = styled(Box)(({ theme }) => ({
+  textAlign: 'center',
+  padding: '.5rem',
 }));

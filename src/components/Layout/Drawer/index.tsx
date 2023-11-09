@@ -6,20 +6,19 @@ import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import SettingsIcon from '@mui/icons-material/Settings';
-import SupportIcon from '@mui/icons-material/Support';
+import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useTheme } from "@mui/material/styles";
-import { DRAWER_WIDTH, StyledDrawer } from "./styles";
+import { DRAWER_WIDTH } from "./styles";
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Starred', href: '/starred', icon: StarIcon },
+  { text: 'Support', icon: PersonIcon },
   { text: 'Tasks', href: '/tasks', icon: ChecklistIcon },
 ];
 
 const PLACEHOLDER_LINKS = [
   { text: 'Settings', icon: SettingsIcon },
-  { text: 'Support', icon: SupportIcon },
   { text: 'Logout', icon: LogoutIcon },
 ];
 
@@ -27,12 +26,16 @@ export function AppDrawer() {
   const theme = useTheme()
 
   return (
-    <StyledDrawer
+    <Drawer
       sx={{
         width: DRAWER_WIDTH,
+        flexShrink: 0,
         '& .MuiDrawer-paper': {
           width: DRAWER_WIDTH,
           boxSizing: 'border-box',
+          height: 'auto',
+          bottom: 0,
+          background: theme.palette.dark.main
         },
       }}
       variant="permanent"
@@ -40,11 +43,12 @@ export function AppDrawer() {
     >
       <List>
         {LINKS.map(({ text, href, icon: Icon }) => (
-          <ListItem key={href} disablePadding>
+          <ListItem key={href} >
             <ListItemButton component={Link} href={href}>
               <ListItemIcon>
                 <Icon />
               </ListItemIcon>
+              
             </ListItemButton>
           </ListItem>
         ))}
@@ -52,15 +56,16 @@ export function AppDrawer() {
       <Divider sx={{ mt: 'auto' }} />
       <List>
         {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-          <ListItem key={text} disablePadding>
+          <ListItem key={text} >
             <ListItemButton>
               <ListItemIcon>
                 <Icon />
               </ListItemIcon>
+              
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-    </StyledDrawer>
+    </Drawer>
   )
 }

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { DayItem, DaysContainer, WeekScheduleCard, WeekScheduleContainer } from "./styles";
+import { DayItem, DaysContainer, TeacherName, TextContainer, WeekScheduleCard, WeekScheduleContainer } from "./styles";
 
 const rows = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
@@ -9,18 +9,18 @@ export function WeekSchedule() {
       <WeekScheduleCard sx={{boxShadow: 3}}>
         <DaysContainer>
           {rows.map(day => (
-            <DayItem>
+            <DayItem key={day}>
               <Box sx={{borderBottom: 1, paddingBottom: '.8rem', textAlign: 'center'}}>
                 <Typography color='#fff'>
                   {day}
                 </Typography>
               </Box>
-              <Box sx={{textAlign: 'center', paddingTop: '.5rem'}}>
+              <TextContainer>
                 <Typography color='#fff'>Arcano-botany for Beginners</Typography>
-              </Box>
-              <Box sx={{textAlign: 'center', marginTop: 3}}>
-                <Typography>Yedora, Grave Gardener</Typography>
-              </Box>
+              </TextContainer>
+              <TextContainer sx={{ marginTop: 3 }}>
+                <TeacherName href="">Yedora, Grave Gardener</TeacherName>
+              </TextContainer>
             </DayItem>
           ))}
         </DaysContainer>
