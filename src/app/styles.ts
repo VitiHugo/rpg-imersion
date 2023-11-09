@@ -19,6 +19,21 @@ export const CharacterPin = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
 }));
 
+export const LocationPin = styled(Box)(({ theme }) => ({
+  width: '52px',
+  height: '52px',
+  borderRadius: '50% 50% 50% 0',
+  background: theme.palette.dark.main,
+  position: 'absolute',
+  transform: 'rotate(-45deg)',
+  right: '15%',
+  top: '15%',
+  margin: '-15px 0 0 -15px',
+  zIndex: 9,
+
+  cursor: 'pointer',
+}));
+
 export const CharacterPinImage = styled(Image)(({ theme }) => ({
   position: 'absolute',
   width: '46.5px',

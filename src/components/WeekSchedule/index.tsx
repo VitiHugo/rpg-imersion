@@ -10,7 +10,7 @@ export function WeekSchedule() {
         <DaysContainer>
           {rows.map(day => (
             <DayItem key={day}>
-              <Box sx={{borderBottom: 1, paddingBottom: '.8rem', textAlign: 'center'}}>
+              <Box sx={{borderBottom: '1px solid #fff', paddingBottom: '.8rem', textAlign: 'center'}}>
                 <Typography color='#fff'>
                   {day}
                 </Typography>

@@ -20,7 +20,7 @@ const theme = createTheme({
     },
     dark: {
       main: darkBase,
-      light: alpha(darkBase, 0.5),
+      light: '#585858',
       dark: alpha(darkBase, 0.9),
       contrastText: getContrastRatio(darkBase, '#fff') > 4.5 ? '#fff' : '#111',
     },
@@ -40,6 +40,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderColor: bloodMain
+        }
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: '#fff'
         }
       }
     }

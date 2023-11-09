@@ -4,13 +4,16 @@ import Image from "next/image";
 import Map from "@/assets/images/strixhaven-map.jpeg"
 import { Box, Modal } from "@mui/material";
 import { WeekResume } from "@/components/WeekResume";
-import { CharacterPin, CharacterPinImage } from "./styles";
+import { CharacterPin, CharacterPinImage, LocationPin } from "./styles";
 import SeranaPhoto from "@/assets/images/serana-photo.png"
+import WhiterBloomImage from "@/assets/images/whiterbloom.jpg"
 import { useState } from "react";
 import { CharacterDetail } from "@/components/CharacterDetail";
+import { LocationDetail } from "@/components/LocationDetail";
 
 export default function Home() {
   const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
 
   return (
     <main >
@@ -27,6 +30,9 @@ export default function Home() {
         <CharacterPin onClick={() => setIsCharacterModalOpen(true)}>
           <CharacterPinImage src={SeranaPhoto} alt="Serana Photo"/>
         </CharacterPin>
+        <LocationPin onClick={() => setIsLocationModalOpen(true)}>
+          <CharacterPinImage src={WhiterBloomImage} alt="Serana Photo"/>
+        </LocationPin>
       </Box>
       <Modal
         open={isCharacterModalOpen}
@@ -35,6 +41,14 @@ export default function Home() {
         aria-describedby="modal-modal-description"
       >
         <CharacterDetail />
+      </Modal>
+      <Modal
+        open={isLocationModalOpen}
+        onClose={() => setIsLocationModalOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <LocationDetail />
       </Modal>
     </main>
   )

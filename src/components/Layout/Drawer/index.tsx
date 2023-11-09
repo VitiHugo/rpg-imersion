@@ -10,6 +10,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useTheme } from "@mui/material/styles";
 import { DRAWER_WIDTH } from "./styles";
+import "@/styles/global.css";
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
