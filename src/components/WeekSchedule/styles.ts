@@ -10,7 +10,7 @@ export const WeekScheduleContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const WeekScheduleCard = styled(Box)(({ theme }) => ({
-  background: theme.palette.dark.main,
+  background: theme.palette.dark.dark,
   borderRadius: '10px',
 }));
 

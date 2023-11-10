@@ -1,6 +1,6 @@
 'use client'
 
-import { Divider, Drawer, Link, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
+import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
@@ -8,14 +8,16 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from "@mui/material/styles";
 import { DRAWER_WIDTH } from "./styles";
 import "@/styles/global.css";
+import Link from "next/link";
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Support', icon: PersonIcon },
-  { text: 'Tasks', href: '/tasks', icon: ChecklistIcon },
+  { text: 'Support', href: '/', icon: PersonIcon },
+  { text: 'NPCs', href: '/npcs', icon: GroupsIcon },
 ];
 
 const PLACEHOLDER_LINKS = [
@@ -36,7 +38,7 @@ export function AppDrawer() {
           boxSizing: 'border-box',
           height: 'auto',
           bottom: 0,
-          background: theme.palette.dark.main
+          background: theme.palette.dark.dark
         },
       }}
       variant="permanent"
@@ -45,12 +47,14 @@ export function AppDrawer() {
       <List>
         {LINKS.map(({ text, href, icon: Icon }) => (
           <ListItem key={href} >
-            <ListItemButton component={Link} href={href}>
-              <ListItemIcon>
-                <Icon />
-              </ListItemIcon>
-              
-            </ListItemButton>
+            <Link href={href}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Icon />
+                </ListItemIcon>
+                
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>

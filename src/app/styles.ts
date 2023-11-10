@@ -23,7 +23,7 @@ export const LocationPin = styled(Box)(({ theme }) => ({
   width: '52px',
   height: '52px',
   borderRadius: '50% 50% 50% 0',
-  background: theme.palette.dark.main,
+  background: theme.palette.dark.dark,
   position: 'absolute',
   transform: 'rotate(-45deg)',
   right: '15%',

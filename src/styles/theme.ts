@@ -19,9 +19,10 @@ const theme = createTheme({
       default: darkBase,
     },
     dark: {
-      main: darkBase,
-      light: '#585858',
-      dark: alpha(darkBase, 0.9),
+      dark: '#292929',
+      main: '#585858',
+      light: '#999999',
+      lighter: '#E6E6E6',
       contrastText: getContrastRatio(darkBase, '#fff') > 4.5 ? '#fff' : '#111',
     },
     blood: {

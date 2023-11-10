@@ -12,5 +12,5 @@ export const WeekResumeContainer = styled(Box)(({ theme }) => ({
 
   padding: '1rem',
   borderRadius: '10px',
-  background: theme.palette.dark.main,
+  background: theme.palette.dark.dark,
 }))
