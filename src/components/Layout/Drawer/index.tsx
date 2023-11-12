@@ -1,10 +1,7 @@
 'use client'
 
 import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon } from "@mui/material"
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import HomeIcon from '@mui/icons-material/Home';
-import StarIcon from '@mui/icons-material/Star';
-import ChecklistIcon from '@mui/icons-material/Checklist';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -13,6 +10,7 @@ import { useTheme } from "@mui/material/styles";
 import { DRAWER_WIDTH } from "./styles";
 import "@/styles/global.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
@@ -21,8 +19,8 @@ const LINKS = [
 ];
 
 const PLACEHOLDER_LINKS = [
-  { text: 'Settings', icon: SettingsIcon },
-  { text: 'Logout', icon: LogoutIcon },
+  { text: 'Settings', href: '/npcs', icon: SettingsIcon },
+  { text: 'Logout', href: '/npcs', icon: LogoutIcon },
 ];
 
 export function AppDrawer() {
@@ -45,29 +43,24 @@ export function AppDrawer() {
       anchor="left"
     >
       <List>
+        <ListItem sx={{display: 'flex', justifyContent: 'center'}}>
+          <Image alt="App logo" src="/img/logo.png" width={50} height={50}/>
+        </ListItem>
         {LINKS.map(({ text, href, icon: Icon }) => (
-          <ListItem key={href} >
+          <ListItem key={href} sx={{display: 'flex', justifyContent: 'center'}}>
             <Link href={href}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon />
-                </ListItemIcon>
-                
-              </ListItemButton>
+              <Icon sx={{color: theme.palette.blood.text}}/>                
             </Link>
           </ListItem>
         ))}
       </List>
       <Divider sx={{ mt: 'auto' }} />
       <List>
-        {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-          <ListItem key={text} >
-            <ListItemButton>
-              <ListItemIcon>
-                <Icon />
-              </ListItemIcon>
-              
-            </ListItemButton>
+        {PLACEHOLDER_LINKS.map(({ text, icon: Icon, href }) => (
+          <ListItem key={href} sx={{display: 'flex', justifyContent: 'center'}}>
+            <Link href={href}>
+              <Icon sx={{color: theme.palette.blood.text}}/>
+            </Link>
           </ListItem>
         ))}
       </List>

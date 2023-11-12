@@ -8,8 +8,10 @@ export const Container = styled(Box)(({ theme }) => ({
 
 export const LeftSession = styled(Box)(({ theme }) => ({
   width: '40%',
-  background: theme.palette.white.main,
   height: '100vh',
+
+  display: 'flex',
+  background: theme.palette.white.main,
 }));
 
 export const RightSession = styled(Box)(({ theme }) => ({
@@ -18,15 +20,25 @@ export const RightSession = styled(Box)(({ theme }) => ({
 }));
 
 export const VerticalTitleContainer = styled(Box)(({ theme }) => ({
+  height: '100%',
   width: '8%',
+  padding: '8rem 0 4rem 0 ',
+
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
 }));
 
 export const ListContainer = styled(Stack)(({ theme }) => ({
-  
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '3rem 4rem 0 1rem',
 }));
 
 export const StyledVerticalLine = styled(Stack)(({ theme }) => ({
-  height: '90vh',
+  height: '80vh',
   borderRight: `2px solid ${theme.palette.dark.dark}`, 
   position: 'relative',
 
