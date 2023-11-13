@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 export const Container = styled(Box)(({ theme }) => ({
   height: '12rem',
   width: '100%',
-  padding: '0 2rem',
+  padding: '0 1rem',
   display: 'flex',
   alignItems: 'center',
   position: 'relative',
@@ -23,7 +24,11 @@ export const Container = styled(Box)(({ theme }) => ({
     'img': {
       boxShadow: '3px 3px 3px #cbcbcb',
     },
-  }
+  },
+
+  '@media (min-width: 1500px)': {
+    padding: '0 2rem',
+  },
 }));
 
 export const CardIndex = styled(Box)(({ theme }) => ({
@@ -40,4 +45,18 @@ export const CardIndex = styled(Box)(({ theme }) => ({
 }));
 
 export const InfosContainer = styled(Box)(({ theme }) => ({
+}));
+
+export const StyledPhoto = styled(Image)(({ theme }) => ({
+  width: '7rem', 
+  height: '7rem',
+  
+  borderRadius: '5px',
+  outline: `2px solid ${theme.palette.blood.text}`,
+  outlineOffset: '-7px',
+
+  '@media (min-width: 1500px)': {
+    width: '8rem', 
+    height: '8rem',
+  },
 }));

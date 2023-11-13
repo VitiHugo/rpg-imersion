@@ -7,7 +7,8 @@ export const Container = styled(Box)(({ theme }) => ({
 
 export const InfoItem = styled(Box)(({ theme }) => ({
   padding: '0 .5rem',
-  minWidth: '6rem',
+  width: '100%',
+  maxWidth: '6rem',
 
   display: 'flex',
   flexDirection: 'column',
