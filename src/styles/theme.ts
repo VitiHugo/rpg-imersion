@@ -8,9 +8,7 @@ const roboto = Roboto({
 });
 
 const darkBase = '#292929';
-
-const bloodBase = '#780000';
-const bloodMain = alpha(bloodBase, 0.7);
+const bloodMain = '#780000';
 
 const theme = createTheme({
   palette: {

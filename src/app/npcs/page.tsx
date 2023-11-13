@@ -183,6 +183,8 @@ export default function Home() {
           <Box sx={{marginTop: '3rem', maxHeight: '22rem', overflow: 'hidden', overflowY:  'auto'}}>
             <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
             </Typography>
+            <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
+            </Typography>
           </Box>
         </Box>
         <Box sx={{

@@ -22,9 +22,6 @@ export default function Home() {
         <Image 
           alt="Main map"
           src={Map} 
-          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
           style={{ height: '100vh', width: '100%' }}
         />
         <CharacterPin onClick={() => setIsCharacterModalOpen(true)}>
