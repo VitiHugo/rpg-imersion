@@ -9,17 +9,17 @@ const roboto = Roboto({
 
 const darkBase = '#292929';
 
-const bloodBase = '#780000';
+export const bloodBase = '#780000';
 const bloodMain = alpha(bloodBase, 0.7);
 
 const theme = createTheme({
   palette: {
     mode: 'light',
     background: {
-      default: darkBase,
+      default: '#fff',
     },
     dark: {
-      dark: '#292929',
+      dark: darkBase,
       main: '#585858',
       light: '#999999',
       lighter: '#E6E6E6',
@@ -43,6 +43,26 @@ const theme = createTheme({
           borderColor: bloodMain
         }
       }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#999999',
+            },
+            '&:hover fieldset': {
+              borderColor: '#585858',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#6F7E8C',
+            },
+          },
+          '& label.Mui-focused': {
+            color: '#780000',
+          },
+        },
+      },
     },
     MuiTypography: {
       styleOverrides: {

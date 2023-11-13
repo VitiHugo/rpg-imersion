@@ -1,13 +1,12 @@
 'use client'
 
 import { useState } from "react";
-import { Container, LeftSession, ListContainer, RightSession, StyledVerticalLine, VerticalTitleContainer } from "./styles";
+import { Container, LeftSession, ListContainer, RightSession, StyledPhoto, StyledVerticalLine, VerticalTitleContainer } from "./styles";
 import { SelectAreaNpc } from "./components/SelectNpcArea";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { CardSelectNpc } from "./components/CardSelectNpc";
 import { Npc } from "@/models/model";
-import { StyledPhoto } from "@/components/StyledPhoto/styles";
 import SeranaPhoto from "@/assets/images/serana-photo.png"
 import { Infos } from "./components/Infos";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
@@ -155,11 +154,11 @@ export default function Home() {
             height: '100%', 
             display: 'flex', 
             flexDirection: 'column', 
-            alignItems: 'center', 
+            alignItems: 'start', 
             justifyContent: 'center',
           }}>
           <Box sx={{display: 'flex'}}>
-            <StyledPhoto src={SeranaPhoto} sx={{width: '22rem', height: '22rem'}} alt={`${selectedNpc.name} photo`}/>
+            <StyledPhoto src={SeranaPhoto} alt={`${selectedNpc.name} photo`}/>
 
             <Box sx={{marginLeft: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <Box>

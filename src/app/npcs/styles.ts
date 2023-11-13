@@ -1,5 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 
 export const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -56,4 +57,18 @@ export const StyledVerticalLine = styled(Stack)(({ theme }) => ({
   '&:before': {
       top: 0
   }
+}));
+
+export const StyledPhoto = styled(Image)(({ theme }) => ({
+  width: '15rem', 
+  height: '15rem',
+
+  borderRadius: '5px',
+  outline: `2px solid ${theme.palette.blood.text}`,
+  outlineOffset: '-7px',
+
+  '@media (min-width: 1750px)': {
+    width: '22rem', 
+    height: '22rem',
+  },
 }));

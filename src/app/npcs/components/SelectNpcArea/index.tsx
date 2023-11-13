@@ -31,7 +31,7 @@ export function SelectAreaNpc({ areas, vertical = false }: Props) {
           disableUnderline={true}
           value={areaId.toString()}
           onChange={handleChange}
-          label="Age"
+          label="Area"
         >
           {areas.map(area => (
             <MenuItem key={area.id} value={area.id}>{area.name}</MenuItem>
