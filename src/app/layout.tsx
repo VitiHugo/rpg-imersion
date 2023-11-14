@@ -35,6 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             outline: '1px solid slategrey',
             borderRadius: '5px',
           },
+          'html, body, main': {
+            overflow: 'auto'
+          }
         }}
       />
       <body>

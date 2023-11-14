@@ -9,7 +9,7 @@ export const Container = styled(Box)(({ theme }) => ({
 
 export const LeftSession = styled(Box)(({ theme }) => ({
   width: '40%',
-  height: '100vh',
+  minHeight: '100vh',
 
   display: 'flex',
   background: theme.palette.white.main,

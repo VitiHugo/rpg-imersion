@@ -39,7 +39,7 @@ const theme = createTheme({
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor: bloodBase
+          background: bloodBase
         }
       }
     },
@@ -62,6 +62,33 @@ const theme = createTheme({
           },
         },
       },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          "&.MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: '#999999'
+            },
+            "&:hover fieldset": {
+              borderColor: '#585858'
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: '#6F7E8C'
+            }
+          },
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: '#999999',
+          '&.Mui-focused': {
+            color: '#780000',
+          },
+        }
+      }
     },
     MuiTypography: {
       styleOverrides: {

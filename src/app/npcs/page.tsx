@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Container, LeftSession, ListContainer, RightSession, StyledPhoto, StyledVerticalLine, VerticalTitleContainer } from "./styles";
 import { SelectAreaNpc } from "./components/SelectNpcArea";
-import { Box, Typography } from "@mui/material";
+import { Box, MenuItem, Select, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { CardSelectNpc } from "./components/CardSelectNpc";
 import { Npc } from "@/models/model";
