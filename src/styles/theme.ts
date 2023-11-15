@@ -39,7 +39,7 @@ const theme = createTheme({
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor: bloodBase
+          borderColor: bloodBase,
         }
       }
     },
