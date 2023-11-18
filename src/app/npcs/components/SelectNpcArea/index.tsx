@@ -3,18 +3,19 @@ import { FormControl, InputLabel, MenuItem, NativeSelect, Select, SelectChangeEv
 import { Container } from "./styles";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import { Setting } from "@prisma/client";
 
 interface Props {
-  areas: Area[],
+  settings: Setting[],
   vertical: boolean
 }
 
-export function SelectAreaNpc({ areas, vertical = false }: Props) {
-  const [areaId, setAreaId] = useState(areas[0].id);
+export function SelectAreaNpc({ settings, vertical = false }: Props) {
+  const [settingId, setSettingId] = useState('');
   const theme = useTheme();
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAreaId(+event.target.value);
+    setSettingId(event.target.value);
   };
 
   return (
@@ -29,12 +30,12 @@ export function SelectAreaNpc({ areas, vertical = false }: Props) {
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
           disableUnderline={true}
-          value={areaId.toString()}
+          value={settingId}
           onChange={handleChange}
           label="Area"
         >
-          {areas.map(area => (
-            <MenuItem key={area.id} value={area.id}>{area.name}</MenuItem>
+          {settings.map(setting => (
+            <MenuItem key={setting.id} value={setting.id}>{setting.name}</MenuItem>
           ))}
         </Select>
       </FormControl>

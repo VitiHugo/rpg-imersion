@@ -10,14 +10,7 @@ import { Npc } from "@/models/model";
 import SeranaPhoto from "@/assets/images/serana-photo.png"
 import { Infos } from "./components/Infos";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-
-const areas = [{
-  id: 1,
-  name: 'Strixhaven'
-},{
-  id: 2,
-  name: 'Sigil'
-}]
+import { Setting } from "@prisma/client";
 
 const npcs = [{
     id: 1,
@@ -127,13 +120,17 @@ const npcs = [{
 
 export default function Home() {
   const [selectedNpc, setSelectedNpc] = useState(npcs[0]);
+  const [seettings, setSettings] = useState<Setting[]>([])
   const theme = useTheme();
+
+  fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
+
   
   return (
     <Container>
       <LeftSession>
         <VerticalTitleContainer>
-          <SelectAreaNpc areas={areas} vertical={true} />
+          <SelectAreaNpc settings={seettings} vertical={true} />
           <StyledVerticalLine />
         </VerticalTitleContainer>
         <ListContainer>

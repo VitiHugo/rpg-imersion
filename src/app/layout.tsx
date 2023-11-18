@@ -1,11 +1,9 @@
 import * as React from 'react';
-import 'reflect-metadata';
 import Box from '@mui/material/Box';
 import ThemeRegistry from '@/styles/themeRegistry';
 import { AppDrawer } from '@/components/Layout/Drawer';
 import { DRAWER_WIDTH } from '@/components/Layout/Drawer/styles';
 import { GlobalStyles } from '@mui/material';
-import { AppDataSource } from '../../dataSource';
 
 export const metadata = {
   title: 'RPG Imersion',
@@ -14,12 +12,6 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
-  AppDataSource.initialize()
-    .then(() => {
-        // here you can start to work with your database
-    })
-    .catch((error) => console.log(error))
-    
   return (
     <html lang="en">
       <GlobalStyles
@@ -37,6 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           },
           'html, body, main': {
             overflow: 'auto'
+          },
+          '.leaflet-container': {
+            background: '#ffe4c9 !important'
           }
         }}
       />

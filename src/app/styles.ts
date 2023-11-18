@@ -1,5 +1,6 @@
 'use client'
 
+import { bloodBase, darkBase } from "@/styles/theme";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
@@ -8,7 +9,7 @@ export const CharacterPin = styled(Box)(({ theme }) => ({
   width: '52px',
   height: '52px',
   borderRadius: '50% 50% 50% 0',
-  background: theme.palette.blood.main,
+  background: bloodBase,
   position: 'absolute',
   transform: 'rotate(-45deg)',
   left: '50%',
@@ -23,7 +24,7 @@ export const LocationPin = styled(Box)(({ theme }) => ({
   width: '52px',
   height: '52px',
   borderRadius: '50% 50% 50% 0',
-  background: theme.palette.dark.dark,
+  background: darkBase,
   position: 'absolute',
   transform: 'rotate(-45deg)',
   right: '15%',
@@ -36,8 +37,8 @@ export const LocationPin = styled(Box)(({ theme }) => ({
 
 export const CharacterPinImage = styled(Image)(({ theme }) => ({
   position: 'absolute',
-  width: '46.5px',
-  height: '46.5px',
+  width: '46.5px !important',
+  height: '46.5px !important',
   transform: 'rotate(45deg)',
   borderRadius: '50%',
   left: 0,

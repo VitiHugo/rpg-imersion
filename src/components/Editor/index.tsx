@@ -15,7 +15,7 @@ export function AppEditor({ height }: Props) {
   
   return (
     <Editor                  
-      apiKey={process.env.NEXT_PUBLIC_TINIMCE_API_KEY}
+      apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
       onInit={(evt, editor) => editorRef.current = editor}
       initialValue="<p>This is the initial content of the editor.</p>"
       init={{

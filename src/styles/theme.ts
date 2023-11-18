@@ -7,15 +7,14 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const darkBase = '#292929';
-
+export const darkBase = '#292929';
 export const bloodBase = '#780000';
 
 const theme = createTheme({
   palette: {
     mode: 'light',
     background: {
-      default: '#fff',
+      default: '#ffe4c9',
     },
     dark: {
       dark: darkBase,

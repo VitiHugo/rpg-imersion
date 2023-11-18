@@ -4,6 +4,7 @@ import { Container, LocationImage, LocationNameContainer } from "./styles";
 import { useState } from "react";
 import { EventCard, EventImage } from "../CharacterDetail/styles";
 import WhiterBloomImage from "@/assets/images/whiterbloom.jpg"
+import ArenaImage from "@/assets/images/arena-image.jpg";
 import DemongorgonEventImage from "@/assets/images/demongorgon-event-image.jpg";
 import { TabPanel, a11yProps } from "../TabPanel";
 
@@ -18,21 +19,20 @@ export function LocationDetail() {
 
   return (
     <Container>
-      <LocationImage sx={{backgroundImage: `url(${WhiterBloomImage.src})`}}>
+      <LocationImage sx={{backgroundImage: `url(${ArenaImage.src})`}}>
         <LocationNameContainer>
           <Typography fontSize="1.5rem">
-            Whiterbloom Gates
+            Arena
           </Typography>
         </LocationNameContainer>
       </LocationImage>
       <Box sx={{padding: '.7rem 1rem'}}>
         <Typography textAlign="center" fontSize=".9rem">
-        A entrada da área do Colégio Whiterbloom em Strixhaven é um portal mágico envolto em trepadeiras resplandecentes. 
-        Este portal emana uma luz verde suave, convidando estudantes a cruzar entre o mundo comum e o reino da magia. 
-        Os jardins deslumbrantes se estendem à sua frente, perfumados por ervas e flores mágicas. 
-        Caminhos sinuosos serpenteiam por entre canteiros exóticos e estátuas de sábios antigos. 
-        Você sente a energia da natureza pulsando enquanto se aproxima, lembrando-o de que está prestes a mergulhar no mundo das 
-        artes herbais e da magia natural.
+          O Estádio de Strixhaven é uma grandiosa arena mágica que serve como o epicentro de competições, 
+          duelos e eventos extraordinários para os estudantes desta prestigiada universidade. 
+          Elevando-se majestosamente no campus, o estádio é uma sinfonia arquitetônica de torres 
+          altas e grandiosas, projetado para misturar a elegância clássica com uma vibe mágica 
+          contemporânea.
         </Typography>
       </Box>
       <Divider sx={{margin: '.7rem 0'}}/>
