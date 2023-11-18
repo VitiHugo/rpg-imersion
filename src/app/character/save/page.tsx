@@ -10,6 +10,7 @@ import DropCharacterImage from './components/DropCharacterImage';
 import { AppEditor } from '@/components/Editor';
 import { useState } from 'react';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { Setting } from '@prisma/client';
 
 const charactersTypes = [{
   id: 1,
@@ -19,22 +20,18 @@ const charactersTypes = [{
   name: 'Player Character'
 }]
 
-const settings = [{
-  id: 1,
-  name: 'Strixhaven'
-},{
-  id: 2,
-  name: 'Sigil'
-},{
-  id: 3,
-  name: 'Feywild'
-}]
+
+
 
 
 export default function Save() {
   const [characterTypeId, setCharacterTypeId] = useState(0)
-  const [settingId, setSettingId] = useState(0)
+  const [settingId, setSettingId] = useState('')
 
+  const [settings, setSettings] = useState<Setting[]>([])
+  fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
+
+  
   const theme = useTheme();
 
   const handleChangeCharacterType = (event: SelectChangeEvent) => {
@@ -42,7 +39,7 @@ export default function Save() {
   };
 
   const handleChangeSetting = (event: SelectChangeEvent) => {
-    setSettingId(+event.target.value);
+    setSettingId(event.target.value);
   };
   
   return (
@@ -96,7 +93,7 @@ export default function Save() {
                   labelId="select-setting-id"
                   id="select-setting-id"
                   disableUnderline={true}
-                  value={settingId.toString()}
+                  value={settingId}
                   onChange={handleChangeSetting}
                   label="Setting"
                   sx={{width: '100%'}}

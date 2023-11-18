@@ -120,7 +120,7 @@ const npcs = [{
 
 export default function Home() {
   const [selectedNpc, setSelectedNpc] = useState(npcs[0]);
-  const [seettings, setSettings] = useState<Setting[]>([])
+  const [settings, setSettings] = useState<Setting[]>([])
   const theme = useTheme();
 
   fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
@@ -130,7 +130,7 @@ export default function Home() {
     <Container>
       <LeftSession>
         <VerticalTitleContainer>
-          <SelectAreaNpc settings={seettings} vertical={true} />
+          <SelectAreaNpc settings={settings} vertical={true} />
           <StyledVerticalLine />
         </VerticalTitleContainer>
         <ListContainer>

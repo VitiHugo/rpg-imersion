@@ -10,15 +10,88 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Setting {
+model User {
+  id             String   @id @default(cuid())
+  first_name     String
+  last_name      String
+  beyondUsername String
+  beyondUrl      String
+  imageUrl       String
+  status         Boolean  @default(true)
+  modifiedBy     String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+
+  characters Character[]
+
+  @@map("users")
+}
+
+model Campaign {
   id          String   @id @default(cuid())
   name        String
-  description String?
-  imageUrl    String?
+  description String
+  image       String
   status      Boolean  @default(true)
   modifiedBy  String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
 
+  @@map("campaigns")
+}
+
+model Setting {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  imageUrl    String?
+  status      Boolean     @default(true)
+  modifiedBy  String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now())
+  Character   Character[]
+
   @@map("settings")
+}
+
+model CharacterType {
+  id         String      @id @default(cuid())
+  name       String
+  status     Boolean     @default(true)
+  modifiedBy String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @default(now())
+  Character  Character[]
+
+  @@map("characterTypes")
+}
+
+model Character {
+  id String @id @default(cuid())
+
+  firstName   String
+  lastName    String
+  imageId     String
+  description String
+  origin      String
+  faction     String
+  size        String
+  race        String
+  alive       Boolean
+  beyondUrl   String
+  status      Boolean  @default(true)
+  modifiedBy  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  characterType   CharacterType @relation(fields: [characterTypeId], references: [id])
+  characterTypeId String
+
+  setting   Setting @relation(fields: [settingId], references: [id])
+  settingId String
+
+  @@map("characters")
 }
