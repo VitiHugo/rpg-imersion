@@ -130,7 +130,9 @@ export default function Home() {
     <Container>
       <LeftSession>
         <VerticalTitleContainer>
-          <SelectAreaNpc settings={settings} vertical={true} />
+          {settings.length > 0 && (
+            <SelectAreaNpc settings={settings} vertical={true} />
+          )}
           <StyledVerticalLine />
         </VerticalTitleContainer>
         <ListContainer>

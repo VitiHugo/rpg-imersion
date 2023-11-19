@@ -16,7 +16,7 @@ model User {
   last_name      String
   beyondUsername String
   beyondUrl      String
-  imageUrl       String
+  imageUrl       String?
   status         Boolean  @default(true)
   modifiedBy     String
   createdAt      DateTime @default(now())
@@ -31,7 +31,7 @@ model Campaign {
   id          String   @id @default(cuid())
   name        String
   description String
-  image       String
+  imageUrl    String?
   status      Boolean  @default(true)
   modifiedBy  String
   createdAt   DateTime @default(now())
@@ -55,7 +55,7 @@ model Setting {
 }
 
 model CharacterType {
-  id         String      @id @default(cuid())
+  id         Int         @id @default(autoincrement())
   name       String
   status     Boolean     @default(true)
   modifiedBy String
@@ -71,7 +71,7 @@ model Character {
 
   firstName   String
   lastName    String
-  imageId     String
+  imageUrl    String?
   description String
   origin      String
   faction     String
@@ -88,7 +88,7 @@ model Character {
   userId String
 
   characterType   CharacterType @relation(fields: [characterTypeId], references: [id])
-  characterTypeId String
+  characterTypeId Int
 
   setting   Setting @relation(fields: [settingId], references: [id])
   settingId String

@@ -46,8 +46,8 @@ export function AppDrawer() {
         <ListItem sx={{display: 'flex', justifyContent: 'center'}}>
           <Image alt="App logo" src="/img/logo.png" width={50} height={50}/>
         </ListItem>
-        {LINKS.map(({ text, href, icon: Icon }) => (
-          <ListItem key={href} sx={{display: 'flex', justifyContent: 'center'}}>
+        {LINKS.map(({ text, href, icon: Icon }, i) => (
+          <ListItem key={`${i}-${href}-menu`} sx={{display: 'flex', justifyContent: 'center'}}>
             <Link href={href}>
               <Icon sx={{color: theme.palette.blood.text}}/>                
             </Link>
@@ -56,8 +56,8 @@ export function AppDrawer() {
       </List>
       <Divider sx={{ mt: 'auto' }} />
       <List>
-        {PLACEHOLDER_LINKS.map(({ text, icon: Icon, href }) => (
-          <ListItem key={href} sx={{display: 'flex', justifyContent: 'center'}}>
+        {PLACEHOLDER_LINKS.map(({ text, icon: Icon, href }, i) => (
+          <ListItem key={`${i}-${href}-menu`} sx={{display: 'flex', justifyContent: 'center'}}>
             <Link href={href}>
               <Icon sx={{color: theme.palette.blood.text}}/>
             </Link>

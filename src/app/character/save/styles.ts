@@ -5,11 +5,12 @@ import { Editor } from '@tinymce/tinymce-react';
 export const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
+  minHeight: '100vh',
 }));
 
 export const LeftSession = styled(Box)(({ theme }) => ({
   width: '65%',
-  height: 'fit-content',
+  
 
   background: theme.palette.white.main,
 }));

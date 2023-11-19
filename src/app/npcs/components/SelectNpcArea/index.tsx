@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function SelectAreaNpc({ settings, vertical = false }: Props) {
-  const [settingId, setSettingId] = useState('');
+  const [settingId, setSettingId] = useState(settings[0].id);
   const theme = useTheme();
 
   const handleChange = (event: SelectChangeEvent) => {

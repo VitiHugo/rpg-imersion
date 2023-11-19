@@ -21,11 +21,11 @@ export default function Home() {
 
   return (
     <main >
-      {/* <WeekResume /> */}
-      <Map 
+      <WeekResume />
+      {/* <Map 
         setIsCharacterModalOpen={setIsCharacterModalOpen}
         setIsLocationModalOpen={setIsLocationModalOpen}
-      />
+      /> */}
       {/* <Box sx={{width: '100%', height: '100vh', position: 'relative'}}>
         <Image 
           alt="Main map"

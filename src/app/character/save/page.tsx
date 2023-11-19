@@ -10,29 +10,17 @@ import DropCharacterImage from './components/DropCharacterImage';
 import { AppEditor } from '@/components/Editor';
 import { useState } from 'react';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { Setting } from '@prisma/client';
-
-const charactersTypes = [{
-  id: 1,
-  name: 'NPC'
-},{
-  id: 2,
-  name: 'Player Character'
-}]
-
-
-
-
+import { CharacterType, Setting } from '@prisma/client';
 
 export default function Save() {
   const [characterTypeId, setCharacterTypeId] = useState(0)
   const [settingId, setSettingId] = useState('')
-
   const [settings, setSettings] = useState<Setting[]>([])
-  fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
-
-  
+  const [characterTypes, setCharacterTypes] = useState<CharacterType[]>([])
   const theme = useTheme();
+
+  fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
+  fetch('/api/characterTypes').then(res => res.json()).then(res => setCharacterTypes(res));
 
   const handleChangeCharacterType = (event: SelectChangeEvent) => {
     setCharacterTypeId(+event.target.value);
@@ -80,7 +68,7 @@ export default function Save() {
                   label="Character Type"
                 >
                   <MenuItem value={0}>Select a type...</MenuItem>
-                  {charactersTypes.map(type => (
+                  {characterTypes.map(type => (
                     <MenuItem key={type.id} value={type.id}>{type.name}</MenuItem>
                   ))}
                 </Select>  
@@ -105,12 +93,15 @@ export default function Save() {
                 </Select> 
               </FormControl>
             </Grid>
-            <Grid item xs={6}>
-              <InfoInput 
-                label="DnD Beyond Character Url"
-                InputLabelProps={{ shrink: true }}
-              />    
-            </Grid>
+            {characterTypeId != 2 && (
+              <Grid item xs={6}>
+                <InfoInput 
+                  label="DnD Beyond Character Url"
+                  InputLabelProps={{ shrink: true }}
+                />    
+              </Grid>
+            )}
+            
             <Grid item xs={12} sx={{marginTop: '1rem'}}>
               <SaveButton
                 startIcon={<PersonAddIcon />}

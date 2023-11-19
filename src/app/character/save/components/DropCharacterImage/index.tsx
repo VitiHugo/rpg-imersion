@@ -25,19 +25,6 @@ function DragCharacterImage({ }) {
 
   }, [])
 
-  const thumbs = files.map(file => (
-    <div key={file.name}>
-      <div >
-        <img
-          src={file.preview}
-          // Revoke data uri after image is loaded
-          onLoad={() => { URL.revokeObjectURL(file.preview) }}
-        />
-      </div>
-    </div>
-  ));
-
-
   return (
     <Container {...getRootProps({className: 'dropzone'})} sx={{backgroundImage: `url(${(files.length && files[0].preview) || ""})`}}>
       <input {...getInputProps()} />
