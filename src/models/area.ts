@@ -1,4 +1,10 @@
 export interface Area {
-  id: number,
+  id: string,
   name: string,
+  description: string
+}
+
+export interface EventType {
+  id: number,
+  name: string
 }
