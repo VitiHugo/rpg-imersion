@@ -1,25 +1,26 @@
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Container } from "./style";
 
 interface Props {
   check: {
-    type: "Skill Check",
-    description: "Arcana Check",
-    dc: 18,
+    type: string,
+    description: string,
+    dc: number,
   }
 }
 
 export default function Check({ check }: Props) {
+  const theme = useTheme();
+
   return (
     <Container>
-      <Box sx={{border: '1px solid', boxShadow: '3px 3px 3px #000'}}>
-        <Typography>
-          {check.description}
-        </Typography>
-        <Typography>
-          DC: {check.dc.toString()}
-        </Typography>
-      </Box>
+      <Typography color={theme.palette.dark.main} fontWeight="bold">
+        {check.description}
+      </Typography>
+      <Typography color={theme.palette.dark.dark} >
+        DC: {check.dc.toString()}
+      </Typography>
     </Container>
   )
 }

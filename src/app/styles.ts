@@ -5,6 +5,11 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 
+export const MainContainer = styled('main')(({ theme }) => ({
+  minHeight: '100vh',
+  backgroundColor: '#ffe4c9',
+}))
+
 export const CharacterPin = styled(Box)(({ theme }) => ({
   width: '52px',
   height: '52px',

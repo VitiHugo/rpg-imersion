@@ -14,7 +14,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     background: {
-      default: '#ffe4c9',
+      default: '#fff',
     },
     dark: {
       dark: darkBase,
@@ -30,6 +30,9 @@ const theme = createTheme({
     white: {
       main: '#fff'
     },
+    primary: {
+      main: bloodBase
+    }
   },
   typography: {
     fontFamily: roboto.style.fontFamily,

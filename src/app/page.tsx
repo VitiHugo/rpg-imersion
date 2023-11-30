@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Box, Modal } from "@mui/material";
 import { WeekResume } from "@/components/WeekResume";
-import { CharacterPin, CharacterPinImage, LocationPin } from "./styles";
+import { CharacterPin, CharacterPinImage, LocationPin, MainContainer } from "./styles";
 import SeranaPhoto from "@/assets/images/serana-photo.png";
 import WhiterBloomImage from "@/assets/images/whiterbloom.jpg";
 import { useState } from "react";
@@ -20,7 +20,8 @@ export default function Home() {
   })
 
   return (
-    <main >
+    <MainContainer>
+
       <WeekResume />
       {/* <Map 
         setIsCharacterModalOpen={setIsCharacterModalOpen}
@@ -55,6 +56,6 @@ export default function Home() {
       >
         <LocationDetail />
       </Modal>
-    </main>
+    </MainContainer>
   )
 }

@@ -8,7 +8,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from "@mui/material/styles";
 import { DRAWER_WIDTH } from "./styles";
-import "@/styles/global.css";
 import Link from "next/link";
 import Image from "next/image";
 

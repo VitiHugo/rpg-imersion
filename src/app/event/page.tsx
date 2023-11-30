@@ -2,14 +2,21 @@
 
 import '@/utils/prototype';
 
-import { Box, Checkbox, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Container, InfoInput, SaveButton } from "./styles";
+import { BtnAddCheck, Container, DialogContainer, Input } from "./styles";
 import { AppEditor } from '@/components/Editor';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Check from './components/Check';
 import { useState } from 'react';
 import { Area, EventType } from '@/models/area';
+import { Title } from '@/components/Title/styles';
+import { AppCheckbox } from '@/components/Checkbox';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import ArrowDropDownSharpIcon from '@mui/icons-material/ArrowDropDownSharp';
+import ArrowRightSharpIcon from '@mui/icons-material/ArrowRightSharp';
+import { DropDialogImage } from './components/DropDialogImage';
+import AddIcon from '@mui/icons-material/Add';
 
 const eventsTypes = [{
   id: 1,
@@ -17,10 +24,10 @@ const eventsTypes = [{
 },
 {
   id: 2,
-  name: 'NPC Dialog'
+  name: 'Event'
 }] as EventType[]
 
-const areas = [{
+const areasTest = [{
   id: '1',
   name: 'The Doorms'
 },{
@@ -29,7 +36,7 @@ const areas = [{
 }] as Area[]
 
 export default function Save() {
-  const [areas, setAreas] = useState<Area[]>([]);
+  const [areas, setAreas] = useState(areasTest);
   const [areaId, setAreaId] = useState('');
   const [events, setEvents] = useState(eventsTypes);
   const [eventTypeId, setEventTypeId] = useState(1);
@@ -46,12 +53,12 @@ export default function Save() {
   return (
     <Container>
         <Box sx={{padding: '1rem 5%',}}>
-          <Typography variant="h1">
+          <Title variant="h1">
             CREATE NEW EVENT
-          </Typography>
-          <Grid container columnSpacing={5} rowSpacing={2} sx={{marginTop: '1.5rem'}}>
-            <Grid item xs={6}>
-              <InfoInput 
+          </Title>
+          <Grid container columnSpacing={2} rowSpacing={2} sx={{marginTop: '1.5rem'}}>
+            <Grid item xs={12} md={6}>
+              <Input 
                 label="Title"
                 InputLabelProps={{ shrink: true }}
               />            
@@ -91,58 +98,54 @@ export default function Save() {
               </FormControl>    
             </Grid>
             
-            <Grid item xs={12}>
-              <DialogContainer>
-                <Box>
-                  <Typography>
-                    Dialog Image
-                  </Typography>
-                  
-                </Box>
-                <AppEditor height={200}/>
-              </DialogContainer>
-            </Grid>
-
-            <Grid item xs={6}>
-              <FormControl sx={{width: '100%'}}>
-                <InputLabel>Character Type</InputLabel>
-                <Select
-                  labelId="select-character-type-id"
-                  id="select-character-type-id"
-                  value={characterTypeId.toString()}
-                  onChange={handleChangeCharacterType}
-                  label="Character Type"
-                >
-                  <MenuItem value={0}>Select a type...</MenuItem>
-                  {characterTypes.map(type => (
-                    <MenuItem key={type.id} value={type.id}>{type.name}</MenuItem>
-                  ))}
-                </Select>  
-              </FormControl>
-            </Grid>
-            <Grid item xs={12}>
+            <DialogContainer item xs={12} sx={{display: 'flex', alignItems: 'center'}}>
               <Box>
-                <Checkbox />
-                <Typography>
+                <Typography color={theme.palette.dark.main}>
+                  Dialog Image
+                </Typography>
+                <DropDialogImage />
+              </Box>
+              <ArrowDropDownSharpIcon fontSize="large" sx={{display: {md: 'none'}}}/>
+              <ArrowRightSharpIcon fontSize="large" sx={{display: {xs: 'none', md: 'inherit'}}}/>
+              <AppEditor height={220}/>
+            </DialogContainer>
+            
+            <Grid item xs={12} mt={6}>
+              <Box sx={{display: 'flex', alignItems: 'center'}}>
+                <Checkbox sx={{padding: 0}}/>
+                <Typography
+                  sx={{borderBottom: `3px solid ${theme.palette.blood.main}`, lineHeight: 1}}
+                  color={theme.palette.dark.main}
+                  fontWeight="bold"
+                >
                   Checks
                 </Typography>
               </Box>
-              <Typography>
+              <Typography color={theme.palette.blood.main} variant="caption">
                 Tip: The character will succedd if they pass in half of the checks, rounded up. 3 checks will need 2 success to complete the event. 
               </Typography>
 
-              <Box>
-                <Check />
+              <Box display="flex" gap={1}>
+                <Check check={{
+                    type: 'Skill Check',
+                    dc: 18,
+                    description: 'Arcana Check'
+                  }} 
+                />
+                <BtnAddCheck>
+                  <AddIcon />
+                </BtnAddCheck>
               </Box>
             </Grid>
             
             <Grid item xs={12} sx={{marginTop: '1rem'}}>
-              <SaveButton
-                startIcon={<PersonAddIcon />}
-                variant="contained"          
+              <Button
+                startIcon={<Diversity3Icon />}
+                variant="contained"
+                sx={{width: '100%'}} 
               >
                 Save
-              </SaveButton>
+              </Button>
             </Grid>
           </Grid>
         </Box>
