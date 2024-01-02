@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Support', href: '/', icon: PersonIcon },
+  { text: 'Character', href: '/character/save', icon: PersonIcon },
   { text: 'NPCs', href: '/npcs', icon: GroupsIcon },
 ];
 
