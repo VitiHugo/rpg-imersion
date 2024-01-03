@@ -11,6 +11,9 @@ import SeranaPhoto from "@/assets/images/serana-photo.png"
 import { Infos } from "./components/Infos";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Setting } from "@prisma/client";
+import Image from "next/image";
+import DividerImg from "@/assets/images/divider 1.png";
+import { FeatureCard } from "./components/FeatureCard";
 
 const npcs = [{
     id: 1,
@@ -183,6 +186,13 @@ export default function Home() {
             </Typography>
             <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
             </Typography>
+          </Box>
+          <Box sx={{marginTop: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+            <Image src={DividerImg} alt="Divider"/>
+            <Typography variant="h4" color={theme.palette.dark.dark}>
+              Notable Possessions/Features
+            </Typography>
+            <FeatureCard />
           </Box>
         </Box>
         <Box sx={{
