@@ -1,21 +1,17 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import { Editor } from '@tinymce/tinymce-react';
 
-export const Container = styled(Box)(({ theme }) => ({
-  display: 'flex',
+export const Container = styled(Grid)(({ theme }) => ({
   width: '100%',
   minHeight: '100vh',
 }));
 
-export const LeftSession = styled(Box)(({ theme }) => ({
-  width: '65%',
-  
-
+export const BasicInformationContainer = styled(Grid)(({ theme }) => ({
   background: theme.palette.white.main,
 }));
 
-export const RightSession = styled(Box)(({ theme }) => ({
+export const AdditionalInformationContainer = styled(Grid)(({ theme }) => ({
   width: '35%',
 
   display: 'flex', 

@@ -1,9 +1,10 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import ThemeRegistry from '@/styles/themeRegistry';
 import { AppDrawer } from '@/components/Layout/Drawer';
 import { DRAWER_WIDTH } from '@/components/Layout/Drawer/styles';
 import { GlobalStyles } from '@mui/material';
+import { AppContainer } from './styles';
 
 export const metadata = {
   title: 'RPG Imersion',
@@ -11,7 +12,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   return (
     <html lang="en">
       <GlobalStyles
@@ -38,16 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeRegistry>
           <AppDrawer />          
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              bgcolor: 'background.default',
-              ml: DRAWER_WIDTH,
-            }}
-          >
+          <AppContainer component="main">
             {children}
-          </Box>
+          </AppContainer>
         </ThemeRegistry>
       </body>
     </html>

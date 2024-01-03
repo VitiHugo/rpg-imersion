@@ -1,5 +1,6 @@
 'use client'
 
+import { DRAWER_WIDTH } from "@/components/Layout/Drawer/styles";
 import { bloodBase, darkBase } from "@/styles/theme";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -8,6 +9,15 @@ import Image from "next/image";
 export const MainContainer = styled('main')(({ theme }) => ({
   minHeight: '100vh',
   backgroundColor: '#ffe4c9',
+}))
+
+export const AppContainer = styled(Box)(({ theme }) => ({
+  flexGrow: 1,
+  bgcolor: 'background.default',
+  
+  [theme.breakpoints.up('md')]: {
+    marginLeft: DRAWER_WIDTH
+  }
 }))
 
 export const CharacterPin = styled(Box)(({ theme }) => ({
