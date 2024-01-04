@@ -5,6 +5,10 @@ import { Editor } from '@tinymce/tinymce-react';
 export const Container = styled(Grid)(({ theme }) => ({
   width: '100%',
   minHeight: '100vh',
+
+  [theme.breakpoints.down('lg')]: {
+    flexDirection: 'column',
+  },
 }));
 
 export const BasicInformationContainer = styled(Grid)(({ theme }) => ({
@@ -12,12 +16,11 @@ export const BasicInformationContainer = styled(Grid)(({ theme }) => ({
 }));
 
 export const AdditionalInformationContainer = styled(Grid)(({ theme }) => ({
-  width: '35%',
+  //width: '35%',
 
   display: 'flex', 
   flexDirection: 'column',
   position: 'relative',
-  background: theme.palette.dark.lighter
 }));
 
 export const InfoInput = styled(TextField)(({ theme }) => ({

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { CardIndex, Container, InfosContainer, StyledPhoto } from "./styles";
+import { CardIndex, CharacterName, Container, InfosContainer, StyledPhoto } from "./styles";
 import { useTheme } from "@mui/material/styles";
 import { Npc } from "@/models/model";
 import SeranaPhoto from "@/assets/images/serana-photo.png"
@@ -10,7 +10,7 @@ interface Props {
   npc: Npc,
   index: number,
   isSelected: boolean,
-  setSelected: Dispatch<SetStateAction<Npc>>
+  setSelected: any,
 }
 
 const isActiveStyles = {
@@ -32,9 +32,9 @@ export function CardSelectNpc({ npc, index, setSelected, isSelected = false }: P
       </CardIndex>
       <StyledPhoto alt={`${npc.name} Photo`} src={SeranaPhoto}/>
       <Box sx={{padding: '0 .8rem', width: '100%'}}>
-        <Typography color={theme.palette.dark.dark} fontWeight="bold" fontSize="2rem">
+        <CharacterName>
           {npc.name.toUpperCase()}
-        </Typography>
+        </CharacterName>
         <InfosContainer>
           <Infos npc={npc}/>
         </InfosContainer>

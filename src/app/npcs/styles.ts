@@ -1,29 +1,32 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 
-export const Container = styled(Box)(({ theme }) => ({
-  display: 'flex',
+export const Container = styled(Grid)(({ theme }) => ({
   width: '100%',
 }));
 
-export const LeftSession = styled(Box)(({ theme }) => ({
-  width: '40%',
+export const LeftSession = styled(Grid)(({ theme }) => ({
   minHeight: '100vh',
+  maxHeight: '100vh',
 
   display: 'flex',
   background: theme.palette.white.main,
 }));
 
-export const RightSession = styled(Box)(({ theme }) => ({
+export const RightSession = styled(Grid)(({ theme }) => ({
+  display: 'flex', 
+  position: 'relative',
   width: '60%',
+  height: '100%',
+  minHeight: '100vh',
   background: theme.palette.dark.lighter
 }));
 
 export const VerticalTitleContainer = styled(Box)(({ theme }) => ({
-  height: '100%',
+  height: '90%',
   width: '8%',
-  padding: '8rem 0 4rem 0 ',
+  padding: '8rem 0 4rem .5rem ',
 
   display: 'flex',
   justifyContent: 'center',
@@ -35,7 +38,10 @@ export const ListContainer = styled(Stack)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  padding: '3rem 4rem 0 1rem',
+  padding: '3rem 3rem 0 1rem',
+
+  [theme.breakpoints.down('lg')]: {
+  },
 }));
 
 export const StyledVerticalLine = styled(Stack)(({ theme }) => ({
@@ -71,4 +77,8 @@ export const StyledPhoto = styled(Image)(({ theme }) => ({
     width: '22rem', 
     height: '22rem',
   },
+}));
+
+export const StyledDivider = styled(Image)(({ theme }) => ({
+  maxWidth: '100%',
 }));

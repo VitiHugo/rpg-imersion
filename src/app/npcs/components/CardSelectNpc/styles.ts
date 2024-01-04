@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 
@@ -58,5 +58,15 @@ export const StyledPhoto = styled(Image)(({ theme }) => ({
   '@media (min-width: 1500px)': {
     width: '8rem', 
     height: '8rem',
+  },
+}));
+
+export const CharacterName = styled(Typography)(({ theme }) => ({
+  color: theme.palette.dark.dark,
+  fontWeight: 'bold',
+  fontSize: '2rem',
+  
+  [theme.breakpoints.down('lg')]: {
+    fontSize: '1.4em',
   },
 }));

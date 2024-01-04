@@ -3,17 +3,26 @@
 import { useState } from "react";
 import { Container, LeftSession, ListContainer, RightSession, StyledPhoto, StyledVerticalLine, VerticalTitleContainer } from "./styles";
 import { SelectAreaNpc } from "./components/SelectNpcArea";
-import { Box, MenuItem, Select, Typography } from "@mui/material";
+import { Box, MenuItem, Select, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { CardSelectNpc } from "./components/CardSelectNpc";
 import { Npc } from "@/models/model";
-import SeranaPhoto from "@/assets/images/serana-photo.png"
 import { Infos } from "./components/Infos";
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Setting } from "@prisma/client";
+import { FeatureCard } from "./components/FeatureCard";
+import SeranaPhoto from "@/assets/images/serana-photo.png"
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import Image from "next/image";
 import DividerImg from "@/assets/images/divider 1.png";
-import { FeatureCard } from "./components/FeatureCard";
+import { useRouter } from "next/navigation";
+
+const areas = [{
+  id: 1,
+  name: 'Strixhaven'
+},{
+  id: 2,
+  name: 'Sigil'
+}]
 
 const npcs = [{
     id: 1,
@@ -49,11 +58,6 @@ const npcs = [{
         value: '???'
       },
       {
-        id: 2,
-        title: 'Faction',
-        value: '???'
-      },
-      {
         id: 3,
         title: 'Size',
         value: 'Medium'
@@ -73,11 +77,6 @@ const npcs = [{
       {
         id: 1,
         title: 'Origin',
-        value: '???'
-      },
-      {
-        id: 2,
-        title: 'Faction',
         value: '???'
       },
       {
@@ -103,11 +102,6 @@ const npcs = [{
         value: '???'
       },
       {
-        id: 2,
-        title: 'Faction',
-        value: '???'
-      },
-      {
         id: 3,
         title: 'Size',
         value: 'Medium'
@@ -123,15 +117,24 @@ const npcs = [{
 
 export default function Home() {
   const [selectedNpc, setSelectedNpc] = useState(npcs[0]);
-  const [settings, setSettings] = useState<Setting[]>([])
+  const [settings, setSettings] = useState<Setting[]>(areas);
   const theme = useTheme();
+  const router = useRouter();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
-
   
+  function handleSelectNpc(npc: Npc) {
+    if(isMobile) {
+      router.push('npcs/' + npc.id.toString())
+    } else {
+      setSelectedNpc(npc)
+    }
+  }
+
   return (
-    <Container>
-      <LeftSession>
+    <Container container>
+      <LeftSession item xs={12} lg={5}>
         <VerticalTitleContainer>
           {settings.length > 0 && (
             <SelectAreaNpc settings={settings} vertical={true} />
@@ -143,71 +146,75 @@ export default function Home() {
             <CardSelectNpc key={npc.id} 
               npc={npc} 
               index={i} 
-              setSelected={setSelectedNpc}
+              setSelected={handleSelectNpc}
               isSelected={npc.id == selectedNpc.id}
             />
           ))}
         </ListContainer>
       </LeftSession>
-      <RightSession sx={{display: 'flex', position: 'relative'}}>
-        <Box sx={{
-            margin: '0 auto',
-            width: '80%', 
-            height: '100%', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'start', 
-            justifyContent: 'center',
-          }}>
-          <Box sx={{display: 'flex'}}>
-            <StyledPhoto src={SeranaPhoto} alt={`${selectedNpc.name} photo`}/>
+      {!isMobile && (
+        <RightSession item xs={12} lg={7}>
+          <Box 
+            sx={{
+              margin: '2rem auto',
+              width: '80%', 
+              height: '100%', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'start', 
+              justifyContent: 'center',
+            }}
+          >
+            <Box sx={{display: 'flex'}}>
+              <StyledPhoto src={SeranaPhoto} alt={`${selectedNpc.name} photo`}/>
 
-            <Box sx={{marginLeft: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-              <Box>
-                <Typography color="success.light" fontWeight="bold">
-                  Friendly
+              <Box sx={{marginLeft: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                <Box>
+                  <Typography color="success.light" fontWeight="bold">
+                    Friendly
+                  </Typography>
+                </Box>
+                <Typography 
+                  color={theme.palette.dark.dark} 
+                  fontWeight="bold" 
+                  fontSize="2.8rem"
+                >
+                  {selectedNpc.name.toUpperCase()}
                 </Typography>
+                <Infos 
+                  npc={selectedNpc} 
+                  hasTopBottomBorder={true}
+                />
               </Box>
-              <Typography 
-                color={theme.palette.dark.dark} 
-                fontWeight="bold" 
-                fontSize="3.5rem"
-              >
-                {selectedNpc.name.toUpperCase()}
+            </Box>
+            <Box sx={{marginTop: '3rem', maxHeight: '22rem', overflow: 'hidden', overflowY:  'auto'}}>
+              <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
               </Typography>
-              <Infos 
-                npc={selectedNpc} 
-                hasTopBottomBorder={true}
-              />
+              <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
+              </Typography>
+            </Box>
+            <Box sx={{marginTop: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
+              <Image src={DividerImg} alt="Divider"/>
+              <Typography variant="h4" color={theme.palette.dark.dark}>
+                Notable Possessions/Features
+              </Typography>
+              <FeatureCard />
             </Box>
           </Box>
-          <Box sx={{marginTop: '3rem', maxHeight: '22rem', overflow: 'hidden', overflowY:  'auto'}}>
-            <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
-            </Typography>
-            <Typography variant="body1" color={theme.palette.dark.dark} dangerouslySetInnerHTML={{ __html: selectedNpc.description }}>
-            </Typography>
+          <Box sx={{
+            position: 'absolute', 
+            right: '0', 
+            width: '10%', 
+            height: '100%', 
+            cursor: 'pointer', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center'
+          }}>
+            <KeyboardDoubleArrowRightIcon sx={{fontSize: '3rem', color: theme.palette.blood.main}} />
           </Box>
-          <Box sx={{marginTop: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-            <Image src={DividerImg} alt="Divider"/>
-            <Typography variant="h4" color={theme.palette.dark.dark}>
-              Notable Possessions/Features
-            </Typography>
-            <FeatureCard />
-          </Box>
-        </Box>
-        <Box sx={{
-          position: 'absolute', 
-          right: '0', 
-          width: '10%', 
-          height: '100%', 
-          cursor: 'pointer', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center'
-        }}>
-          <KeyboardDoubleArrowRightIcon sx={{fontSize: '3rem', color: theme.palette.blood.main}} />
-        </Box>
-      </RightSession>
+        </RightSession>
+      )}
     </Container>
   )
 }
