@@ -122,7 +122,7 @@ export default function Save() {
                 </Typography>
               </Box>
               <Typography color={theme.palette.blood.main} variant="caption">
-                Tip: The character will succedd if they pass in half of the checks, rounded up. 3 checks will need 2 success to complete the event. 
+                Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
               </Typography>
 
               <Box display="flex" gap={1}>
