@@ -8,7 +8,7 @@ export const Container = styled(Box)(({ theme }) => ({
 
 export const DialogContainer = styled(Grid)(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
+  flexDirection: 'column'
 }));
 
 export const Input = styled(TextField)(({ theme }) => ({

@@ -20,10 +20,6 @@ export function DropDialogImage({ }) {
     }
   });
 
-  useEffect(() => {
-
-  }, [])
-
   return (
     <Container {...getRootProps({className: 'dropzone'})} sx={{backgroundImage: `url(${(files.length && files[0].preview) || ""})`}}>
       <input {...getInputProps()} />
