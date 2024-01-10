@@ -6,7 +6,7 @@ import { DropDialogImage } from '../DropDialogImage';
 import { AppEditor } from '@/components/Editor';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import '@/styles/quill.snow.css';
 import { useState } from "react";
 
 interface Props {
@@ -30,7 +30,9 @@ export function DialogBox({ register, item, index, remove }: Props) {
       </Box>
       <ArrowDropDownSharpIcon fontSize="large" sx={{display: {md: 'none'}}}/>
       <ArrowRightSharpIcon sx={{display: {xs: 'none', md: 'inherit', fontSize: '4rem'}}}/>
-      <ReactQuill theme="snow" value={value} onChange={setValue} />
+      <Box sx={{height: '100%', display: 'flex'}}>
+        <ReactQuill theme="snow" style={{height: '150px'}} value={value} onChange={setValue} />
+      </Box>
       <DeleteIcon color='primary'sx={{cursor: 'pointer', margin: '0 1rem'}} onClick={() => remove(index)}/>
     </Box>
   );

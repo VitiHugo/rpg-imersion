@@ -10,7 +10,6 @@ import ArenaImage from "@/assets/images/arena-image.jpg";
 import { useState } from "react";
 import { CharacterDetail } from "@/components/CharacterDetail";
 import { LocationDetail } from "@/components/LocationDetail";
-import dynamic from "next/dynamic";
 import Map from "@/assets/images/strixhaven-map.jpeg"
 
 

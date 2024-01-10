@@ -2,19 +2,17 @@
 
 import '@/utils/prototype';
 
-import { Box, Button, Checkbox, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { BtnAddCheck, Container, DialogContainer, Input } from "./styles";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Check from './components/Check';
 import { useState } from 'react';
 import { Area, EventType } from '@/models/area';
 import { Title } from '@/components/Title/styles';
-import { AppCheckbox } from '@/components/Checkbox';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 
 import AddIcon from '@mui/icons-material/Add';
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import ChatIcon from '@mui/icons-material/Chat';
 import { DialogBox } from './components/DialogBox';
 

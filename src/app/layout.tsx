@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import Box from '@mui/material/Box';
 import ThemeRegistry from '@/styles/themeRegistry';
 import { AppDrawer } from '@/components/Layout/Drawer';
-import { DRAWER_WIDTH } from '@/components/Layout/Drawer/styles';
 import { GlobalStyles } from '@mui/material';
 import { AppContainer } from './styles';
+import '@/styles/quill.snow.css';
 
 export const metadata = {
   title: 'RPG Imersion',
