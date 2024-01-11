@@ -12,11 +12,13 @@ import Link from "next/link";
 import Image from "next/image";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useState } from "react";
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
   { text: 'Character', href: '/character/save', icon: PersonIcon },
   { text: 'NPCs', href: '/npcs', icon: GroupsIcon },
+  { text: 'Events', href: '/event/save', icon: FlashOnIcon },
 ];
 
 const PLACEHOLDER_LINKS = [
@@ -24,9 +26,7 @@ const PLACEHOLDER_LINKS = [
   { text: 'Logout', href: '/npcs', icon: LogoutIcon },
 ];
 
-interface Props {
-  
-}
+interface Props {}
 
 export function AppDrawer({  }: Props) {
   const theme = useTheme();

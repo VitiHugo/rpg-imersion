@@ -6,6 +6,8 @@
  */
  .quill {
   border-radius: 5px;
+  height: calc(100% - 2.7rem); /*100% - size of toolbar*/
+  width: 100%;
  }
  .ql-container {
   box-sizing: border-box;
@@ -856,6 +858,7 @@
   box-sizing: border-box;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   padding: 8px;
+  height: 2.7rem;
 }
 .ql-toolbar.ql-snow .ql-formats {
   margin-right: 15px;

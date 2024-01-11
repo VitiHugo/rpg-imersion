@@ -5,7 +5,11 @@ import { useTheme } from "@mui/material/styles";
 import { useCallback, useEffect, useState } from "react";
 import HighlightAltIcon from '@mui/icons-material/HighlightAlt';
 
-export function DropDialogImage({ }) {
+interface Props {
+  onChange: any;
+}
+
+export function DropDialogImage({ onChange}: Props) {
   const theme = useTheme();
 
   const [files, setFiles] = useState([]);
@@ -19,6 +23,13 @@ export function DropDialogImage({ }) {
       })));
     }
   });
+
+  useEffect(() => {
+    if(files.length > 0){
+      console.log(files[0].preview)
+      onChange(files[0].preview)
+    }
+  },[files])
 
   return (
     <Container {...getRootProps({className: 'dropzone'})} sx={{backgroundImage: `url(${(files.length && files[0].preview) || ""})`}}>
