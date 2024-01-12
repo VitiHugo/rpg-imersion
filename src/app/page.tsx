@@ -11,7 +11,8 @@ import { useState } from "react";
 import { CharacterDetail } from "@/components/CharacterDetail";
 import { LocationDetail } from "@/components/LocationDetail";
 import Map from "@/assets/images/strixhaven-map.jpeg"
-
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import theme from "@/styles/theme";
 
 export default function Home() {
   const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function Home() {
           <CharacterPinImage src={WhiterBloomImage} alt="Serana Photo"/>
         </LocationPin>
         <EventPin onClick={() => setIsLocationModalOpen(true)}>
-          <CharacterPinImage src={ArenaImage} alt="Arena Photo"/>
+          <PriorityHighIcon />
         </EventPin>
       </Box>
       <Modal

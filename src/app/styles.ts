@@ -36,10 +36,10 @@ export const CharacterPin = styled(Box)(({ theme }) => ({
 }));
 
 export const EventPin = styled(Box)(({ theme }) => ({
-  width: '52px',
-  height: '52px',
+  width: '28px',
+  height: '28px',
   borderRadius: '50% 50% 50% 0',
-  background: theme.palette.success.dark,
+  background: '#ff5e00',
   position: 'absolute',
   transform: 'rotate(-45deg)',
   left: '15%',
@@ -48,6 +48,12 @@ export const EventPin = styled(Box)(({ theme }) => ({
   zIndex: 9,
 
   cursor: 'pointer',
+
+  'svg': {
+    color:  '#fff',
+    transform: 'rotate(45deg)',
+    margin: '2px 0 0 2px',
+  }
 }));
 
 export const LocationPin = styled(Box)(({ theme }) => ({
