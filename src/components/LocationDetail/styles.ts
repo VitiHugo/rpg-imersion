@@ -22,7 +22,7 @@ export const LocationImage = styled(Box)(({ theme }) => ({
 export const LocationNameContainer = styled(Box)(({ theme }) => ({
   position: 'absolute',
   background: alpha(theme.palette.dark.dark, 0.75),
-  borderRadius: '10px 0 0 10px',
+  borderRadius: '10px 0 0 0',
   padding: '.5rem 1rem',
   minWidth: '45%',
   bottom: 0,

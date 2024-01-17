@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { CharacterDetailContainer, CharacterImage, CharacterNameContainer, EventCard, EventImage } from "./styles";
+import { EventCard, EventDetailContainer, EventImage } from "./styles";
 import { useTheme  } from "@mui/material/styles";
 import DemongorgonEventImage from "@/assets/images/demongorgon-event-image.jpg";
 import ProfessorOnyxPhoto from "@/assets/images/professorOnyx-photo.png";
@@ -7,14 +7,14 @@ import ProfessorOnyxPhoto from "@/assets/images/professorOnyx-photo.png";
 export function EventDetail() {
   const theme = useTheme();
   return (
-    <CharacterDetailContainer>
-      <CharacterImage sx={{backgroundImage: `url(${ProfessorOnyxPhoto.src})`}}>
+    <EventDetailContainer>
+      {/* <CharacterImage sx={{backgroundImage: `url(${ProfessorOnyxPhoto.src})`}}>
         <CharacterNameContainer>
           <Typography fontSize="1.5rem">
             Serafina Onyx
           </Typography>
         </CharacterNameContainer>
-      </CharacterImage>
+      </CharacterImage> */}
       <Box sx={{padding: '.7rem 1rem'}}>
         <Typography textAlign="center" fontSize=".9rem">
           A Professora Onyx é uma feiticeira misteriosa e icônica de Strixhaven. Vestida em trajes negros e enfeitada com ornamentos dourados,
@@ -54,6 +54,6 @@ export function EventDetail() {
           </Box>
         </EventCard>
       </Box>
-    </CharacterDetailContainer>
+    </EventDetailContainer>
   );
 } 
