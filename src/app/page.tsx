@@ -13,10 +13,12 @@ import { LocationDetail } from "@/components/LocationDetail";
 import Map from "@/assets/images/strixhaven-map.jpeg"
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import theme from "@/styles/theme";
+import { EventDetail } from "@/components/EventDetail";
 
 export default function Home() {
   const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   // const Map = dynamic(() => import('../components/Map'), { 
   //   ssr: false,
@@ -42,7 +44,7 @@ export default function Home() {
         <LocationPin onClick={() => setIsLocationModalOpen(true)}>
           <CharacterPinImage src={WhiterBloomImage} alt="Serana Photo"/>
         </LocationPin>
-        <EventPin onClick={() => setIsLocationModalOpen(true)}>
+        <EventPin onClick={() => setIsEventModalOpen(true)}>
           <PriorityHighIcon />
         </EventPin>
       </Box>
@@ -61,6 +63,14 @@ export default function Home() {
         aria-describedby="modal-modal-description"
       >
         <LocationDetail />
+      </Modal>
+      <Modal
+        open={isEventModalOpen}
+        onClose={() => setIsEventModalOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <EventDetail />
       </Modal>
     </MainContainer>
   )

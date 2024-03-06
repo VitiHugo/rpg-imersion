@@ -1,58 +1,49 @@
-import { Box, Divider, Typography } from "@mui/material";
-import { EventCard, EventDetailContainer, EventImage } from "./styles";
+import { Box, Button, Divider, Typography } from "@mui/material";
+import { DialogCard, DialogImage, EventDetailContainer, EventModalImage, EventTitleContainer } from "./styles";
 import { useTheme  } from "@mui/material/styles";
 import DemongorgonEventImage from "@/assets/images/demongorgon-event-image.jpg";
 import ProfessorOnyxPhoto from "@/assets/images/professorOnyx-photo.png";
+import ArrowRightSharpIcon from '@mui/icons-material/ArrowRightSharp';
+import Image from "next/image";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 export function EventDetail() {
   const theme = useTheme();
   return (
     <EventDetailContainer>
-      {/* <CharacterImage sx={{backgroundImage: `url(${ProfessorOnyxPhoto.src})`}}>
-        <CharacterNameContainer>
+      <EventModalImage sx={{backgroundImage: `url(${ProfessorOnyxPhoto.src})`}}>
+        <EventTitleContainer>
           <Typography fontSize="1.5rem">
-            Serafina Onyx
+            Mathemagic Homework
           </Typography>
-        </CharacterNameContainer>
-      </CharacterImage> */}
+        </EventTitleContainer>
+      </EventModalImage>
       <Box sx={{padding: '.7rem 1rem'}}>
-        <Typography textAlign="center" fontSize=".9rem">
-          A Professora Onyx é uma feiticeira misteriosa e icônica de Strixhaven. Vestida em trajes negros e enfeitada com ornamentos dourados,
-          sua presença é imponente. Seu olhar penetrante e conhecimento profundo das artes negras a tornam uma figura respeitada e temida no colégio.
-        </Typography>
-      </Box>
-      <Divider />
-      <Typography textAlign="center" variant="h3" fontSize="1.5rem">Events</Typography>
-      <Box
-        sx={{padding: '1rem', maxHeight: '17rem', overflow: 'hidden', overflowY: 'auto', scrollbarColor: '#000 #d738'}}
-      >
-        <EventCard>
-          <EventImage src={DemongorgonEventImage} alt="Demongorgon Fight Event"/>
-          <Box sx={{padding: '0 .7rem'}}>
-            <Typography variant="h5" fontSize="1.1rem" fontWeight="bold">Fight against Demongordon</Typography>
-            <Typography fontSize=".8rem" sx={{overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>
-              The characters helped onyx fight an old enemy of her. The players used this opportunity to learn more abouther past too.
-            </Typography>
-          </Box>
-        </EventCard>
-        <EventCard>
-          <EventImage src={DemongorgonEventImage} alt="Demongorgon Fight Event"/>
-          <Box sx={{padding: '0 .7rem'}}>
-            <Typography variant="h5" fontSize="1.1rem" fontWeight="bold">Fight against Demongordon</Typography>
-            <Typography fontSize=".8rem" sx={{overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>
-              The characters helped onyx fight an old enemy of her. The players used this opportunity to learn more abouther past too.
-            </Typography>
-          </Box>
-        </EventCard>
-        <EventCard>
-          <EventImage src={DemongorgonEventImage} alt="Demongorgon Fight Event"/>
-          <Box sx={{padding: '0 .7rem'}}>
-            <Typography variant="h5" fontSize="1.1rem" fontWeight="bold">Fight against Demongordon</Typography>
-            <Typography fontSize=".8rem" sx={{overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>
-              The characters helped onyx fight an old enemy of her. The players used this opportunity to learn more abouther past too.
-            </Typography>
-          </Box>
-        </EventCard>
+        {/* {dialogs.map(() => {})} */}
+        <DialogCard>
+          <DialogImage src={ProfessorOnyxPhoto} alt="dialog 1 image" />
+          
+          <ArrowRightSharpIcon sx={{display: {xs: 'none', md: 'inherit', fontSize: '4rem', color: theme.palette.dark.lighter}}}/>
+          <Typography>
+            <b>Adrix:</b> Nev, I was thinking of spicing things up for the students' next assignment. How about a homework on manipulating a 
+            firebolt spell in the gym?
+            <br />
+            <b>Nev:</b> Firebolt, Adrix? In the gym? That sounds like a recipe for disaster. 
+            <br />
+            <b>Adrix:</b> Oh, come on, Nev! It'll be a controlled exercise in precision and focus. What could possibly go wrong? 
+            <br />
+            <b>Nev:</b> Famous last words, Adrix. Fine, let's hope our students have a good grasp of both magic and fire safety.
+          </Typography>
+        </DialogCard>
+        <Box>
+          
+        </Box>
+        <Button 
+          sx={{marginTop: '1rem'}}
+          startIcon={<PersonAddIcon />}
+          variant="contained" 
+          color="success"
+        >Accept Event</Button>
       </Box>
     </EventDetailContainer>
   );
