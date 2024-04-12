@@ -197,7 +197,7 @@ export default function Save() {
                 Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
               </Typography>
               {hasChecks && (
-                <Box display="flex" gap={1}>
+                <Box display="flex" gap={1} mt={2}>
                   <Check check={{
                       type: 'Skill Check',
                       dc: 18,
