@@ -5,7 +5,7 @@ import '@/utils/prototype';
 import { Box, Button, Checkbox, FormControl, Grid, InputLabel, Menu, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { BtnAddCheck, Container, DialogContainer, Input } from "../styles";
-import Check from '../components/Check';
+import CheckOption from '../components/CheckOption';
 import { useState } from 'react';
 import { Area, EventType } from '@/models/area';
 import { Title } from '@/components/Title/styles';
@@ -17,6 +17,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { useForm, useFieldArray } from "react-hook-form";
 import ForumIcon from '@mui/icons-material/Forum';
 import { DialogBox } from '../components/DialogBox';
+import DropImage from '@/components/DropImage';
 
 const eventsTypes = [{
   id: 1,
@@ -84,7 +85,10 @@ export default function Save() {
   };
   
   return (
-    <Container>
+    <Container sx={{display: 'flex', flexDirection: 'column'}}>
+      <Box>
+        <DropImage label="Display Image" />
+      </Box>
       <Box sx={{padding: '1rem 5%',}}>
         <Title variant="h1">
           CREATE NEW EVENT
@@ -197,13 +201,63 @@ export default function Save() {
                 Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
               </Typography>
               {hasChecks && (
-                <Box display="flex" gap={1} mt={2}>
-                  <Check check={{
-                      type: 'Skill Check',
-                      dc: 18,
-                      description: 'Arcana Check'
-                    }} 
-                  />
+                <Box display="flex" flexDirection="column" gap={1} mt={2}>
+                  <Box display="flex" >
+                    <CheckOption check={{
+                        type: 'Skill Check',
+                        dc: 18,
+                        description: 'Arcana Check'
+                      }} 
+                    />
+                    <Box ml={2}>
+                      <Typography
+                        color={theme.palette.dark.main}
+                        fontWeight="bold"
+                        fontSize="1.2rem"
+                      >
+                        Description
+                      </Typography>
+                      <Box sx={{display: 'flex', alignItems: 'center'}}>
+                        <Checkbox 
+                          checked={hasChecks}
+                          onChange={handleChangeHasChecks}
+                          sx={{padding: 0}} 
+                        />
+                        <Typography
+                          color={theme.palette.dark.main}
+                          fontWeight="bold"
+                        >
+                          Image
+                        </Typography>
+                      </Box>
+                      <Box sx={{display: 'flex', alignItems: 'center'}}>
+                        <Checkbox 
+                          checked={hasChecks}
+                          onChange={handleChangeHasChecks}
+                          sx={{padding: 0}} 
+                        />
+                        <Typography
+                          color={theme.palette.dark.main}
+                          fontWeight="bold"
+                        >
+                          Audio
+                        </Typography>
+                      </Box>
+                      <Box sx={{display: 'flex', alignItems: 'center'}}>
+                        <Checkbox 
+                          checked={hasChecks}
+                          onChange={handleChangeHasChecks}
+                          sx={{padding: 0}} 
+                        />
+                        <Typography
+                          color={theme.palette.dark.main}
+                          fontWeight="bold"
+                        >
+                          Text
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                   <BtnAddCheck>
                     <AddIcon />
                   </BtnAddCheck>

@@ -5,13 +5,13 @@ import { Accordion, AccordionDetails, AccordionSummary, Box, Divider, FormContro
 import { useTheme } from "@mui/material/styles";
 import { AdditionalInformationContainer, BasicInformationContainer, Container, InfoInput, LeftTitle, SaveButton } from "./styles";
 import { AppCheckbox } from "@/components/Checkbox";
-import DropCharacterImage from './components/DropCharacterImage';
 import { AppEditor } from '@/components/Editor';
 import { useState } from 'react';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { CharacterType, Setting } from '@prisma/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ConditionalWrap } from '@/components/ConditionalWrap';
+import DropImage from '@/components/DropImage';
 
 export default function Save() {
   const [characterTypeId, setCharacterTypeId] = useState(0)
@@ -35,7 +35,7 @@ export default function Save() {
   return (
     <Container container>
       <BasicInformationContainer xs={12} lg={8}>
-        <DropCharacterImage />
+        <DropImage label="Character Image" />
         <ConditionalWrap
           condition={isMobile}
           wrap={children => (

@@ -1,12 +1,15 @@
 import { useDropzone } from "React-dropzone";
-import { Container, SelectFileButton, TextContainer } from "./styles";
-import { Box, Button, Typography } from "@mui/material";
+import { Container, TextContainer, ImageTitle } from "./styles";
+import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import HighlightAltIcon from '@mui/icons-material/HighlightAlt';
-import { CharacterImageTitle } from "../../styles";
 
-function DragCharacterImage({ }) {
+interface DragImageProps {
+  label?: string
+}
+
+function DragImage({ label }: DragImageProps) {
   const theme = useTheme();
 
   const [files, setFiles] = useState([]);
@@ -20,10 +23,6 @@ function DragCharacterImage({ }) {
       })));
     }
   });
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <Container {...getRootProps({className: 'dropzone'})} sx={{backgroundImage: `url(${(files.length && files[0].preview) || ""})`}}>
@@ -40,11 +39,13 @@ function DragCharacterImage({ }) {
           <HighlightAltIcon sx={{marginLeft:'.3rem'}}/>
         </Typography>
       </TextContainer>
-      <CharacterImageTitle>
-        Character Image
-      </CharacterImageTitle>
+      {label && (
+        <ImageTitle>
+          {label}
+        </ImageTitle>
+      )}
     </Container>
   );
 }
 
-export default DragCharacterImage;
+export default DragImage;

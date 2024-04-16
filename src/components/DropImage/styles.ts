@@ -12,6 +12,8 @@ export const Container = styled(Box)(({ theme }) => ({
   position: 'relative',
   
   background: theme.palette.dark.light,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
   cursor: 'pointer',
 }));
 
@@ -31,4 +33,17 @@ export const SelectFileButton = styled(Button)(({ theme }) => ({
     background: theme.palette.blood.main,
     color: theme.palette.dark.lighter,
   }
+}));
+
+export const ImageTitle = styled(Typography)(({ theme }) => ({
+  width: '20%',
+  background: alpha(theme.palette.dark.dark, 0.8),
+  padding: '.5rem',
+  borderRadius: '0 5px 5px 0',
+  fontWeight: 'bold',
+  fontSize: '1.25rem',
+
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
 }));

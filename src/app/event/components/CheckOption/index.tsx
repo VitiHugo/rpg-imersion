@@ -48,7 +48,7 @@ interface Props {
   }
 }
 
-export default function Check({ check }: Props) {
+export default function CheckOption({ check }: Props) {
   const theme = useTheme();
 
   return (
