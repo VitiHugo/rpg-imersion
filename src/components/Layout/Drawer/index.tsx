@@ -22,7 +22,7 @@ const LINKS = [
 ];
 
 const PLACEHOLDER_LINKS = [
-  { text: 'Settings', href: '/npcs', icon: SettingsIcon },
+  { text: 'Settings', href: '/profile', icon: SettingsIcon },
   { text: 'Logout', href: '/npcs', icon: LogoutIcon },
 ];
 

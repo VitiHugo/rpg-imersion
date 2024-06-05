@@ -5,7 +5,7 @@ import { LatLngBounds, CRS, point, Icon, IconOptions } from 'leaflet';
 import { MapContainer, Popup, TileLayer} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { CharacterPin, CharacterPinImage, LocationPin } from '@/app/styles';
-import { JSXMarker } from "@/components/MapMarker";
+import { JSXMarker } from "@/components/global/MapMarker";
 import { Dispatch, SetStateAction } from 'react';
 
 import SeranaPhoto from "@/assets/images/serana-photo.png";

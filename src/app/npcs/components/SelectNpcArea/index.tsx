@@ -1,4 +1,3 @@
-import { Area } from "@/models/area";
 import { FormControl, InputLabel, MenuItem, NativeSelect, Select, SelectChangeEvent, Typography } from "@mui/material";
 import { Container } from "./styles";
 import { useState } from "react";

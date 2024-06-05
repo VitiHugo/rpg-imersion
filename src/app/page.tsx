@@ -2,18 +2,18 @@
 
 import Image from "next/image";
 import { Box, Modal } from "@mui/material";
-import { WeekResume } from "@/components/WeekResume";
+import { WeekResume } from "@/components/global/WeekResume";
 import { CharacterPin, CharacterPinImage, EventPin, LocationPin, MainContainer } from "./styles";
 import SeranaPhoto from "@/assets/images/serana-photo.png";
 import WhiterBloomImage from "@/assets/images/whiterbloom.jpg";
 import ArenaImage from "@/assets/images/arena-image.jpg";
 import { useState } from "react";
-import { CharacterDetail } from "@/components/CharacterDetail";
-import { LocationDetail } from "@/components/LocationDetail";
+import { CharacterDetail } from "@/components/global/CharacterDetail";
+import { LocationDetail } from "@/components/global/LocationDetail";
 import Map from "@/assets/images/strixhaven-map.jpeg"
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import theme from "@/styles/theme";
-import { EventDetail } from "@/components/EventDetail";
+import { EventDetail } from "@/components/global/EventDetail";
 
 export default function Home() {
   const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false);

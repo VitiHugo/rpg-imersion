@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Stack, styled } from "@mui/material";
-import { DRAWER_WIDTH } from "../Layout/Drawer/styles";
+import { DRAWER_WIDTH } from "../../Layout/Drawer/styles";
 
 export const WeekResumeContainer = styled(Box)(({ theme }) => ({
   display: 'flex',

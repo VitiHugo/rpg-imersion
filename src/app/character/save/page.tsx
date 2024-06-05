@@ -4,14 +4,14 @@ import '@/utils/prototype';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Divider, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { AdditionalInformationContainer, BasicInformationContainer, Container, InfoInput, LeftTitle, SaveButton } from "./styles";
-import { AppCheckbox } from "@/components/Checkbox";
-import { AppEditor } from '@/components/Editor';
+import { AppCheckbox } from "@/components/global/Checkbox";
+import { AppEditor } from '@/components/global/Editor';
 import { useState } from 'react';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { CharacterType, Setting } from '@prisma/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ConditionalWrap } from '@/components/ConditionalWrap';
-import DropImage from '@/components/DropImage';
+import { ConditionalWrap } from '@/components/global/ConditionalWrap';
+import DropImage from '@/components/global/DropImage';
 
 export default function Save() {
   const [characterTypeId, setCharacterTypeId] = useState(0)

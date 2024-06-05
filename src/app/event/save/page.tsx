@@ -7,8 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import { BtnAddCheck, Container, DialogContainer, Input } from "../styles";
 import CheckOption from '../components/CheckOption';
 import { useState } from 'react';
-import { Area, EventType } from '@/models/area';
-import { Title } from '@/components/Title/styles';
+import { Title } from '@/components/global/Title/styles';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import CommentIcon from '@mui/icons-material/Comment';
 import MessageIcon from '@mui/icons-material/Message';
@@ -17,7 +16,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { useForm, useFieldArray } from "react-hook-form";
 import ForumIcon from '@mui/icons-material/Forum';
 import { DialogBox } from '../components/DialogBox';
-import DropImage from '@/components/DropImage';
+import DropImage from '@/components/global/DropImage';
 
 const eventsTypes = [{
   id: 1,
