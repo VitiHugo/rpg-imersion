@@ -88,7 +88,7 @@ export default function Save() {
       <Box>
         <DropImage label="Display Image" />
       </Box>
-      <Box sx={{padding: '1rem 5%',}}>
+      <Box sx={{padding: '1rem 1rem',}}>
         <Title variant="h1">
           CREATE NEW EVENT
         </Title>

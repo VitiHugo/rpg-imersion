@@ -1,15 +1,16 @@
 import { useDropzone } from "React-dropzone";
-import { Container, SelectFileButton, TextContainer } from "./styles";
-import { Box, Button, Typography } from "@mui/material";
+import { Container, TextContainer } from "./styles";
+import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HighlightAltIcon from '@mui/icons-material/HighlightAlt';
 
 interface Props {
   onChange: any;
+  size?: 'cover' | 'auto'
 }
 
-export function DropDialogImage({ onChange}: Props) {
+export function DropDialogImage({ onChange, size = 'auto' }: Props) {
   const theme = useTheme();
 
   const [files, setFiles] = useState([]);
@@ -32,7 +33,10 @@ export function DropDialogImage({ onChange}: Props) {
   },[files])
 
   return (
-    <Container {...getRootProps({className: 'dropzone'})} sx={{backgroundImage: `url(${(files.length && files[0].preview) || ""})`}}>
+    <Container {...getRootProps({className: 'dropzone'})} sx={{
+      backgroundImage: `url(${(files.length && files[0].preview) || ""})`,
+      backgroundSize: size,
+    }}>
       <input {...getInputProps()} />
       <TextContainer>
         <Typography fontWeight="bold">

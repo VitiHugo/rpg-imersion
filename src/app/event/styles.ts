@@ -33,6 +33,5 @@ export const BtnAddCheck = styled(Box)(({ theme }) => ({
 
   '&:hover': {
   background: theme.palette.white.main,
-    
   }
 }))

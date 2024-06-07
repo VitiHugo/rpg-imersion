@@ -56,7 +56,7 @@ export default function Save() {
             </Accordion>
           )}
         >
-          <Box sx={{padding: '1rem 5%',}}>   
+          <Box sx={{padding: '1rem 1rem'}}>   
             {!isMobile && (
               <Box sx={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                 <Typography 

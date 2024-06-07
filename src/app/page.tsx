@@ -6,13 +6,11 @@ import { WeekResume } from "@/components/global/WeekResume";
 import { CharacterPin, CharacterPinImage, EventPin, LocationPin, MainContainer } from "./styles";
 import SeranaPhoto from "@/assets/images/serana-photo.png";
 import WhiterBloomImage from "@/assets/images/whiterbloom.jpg";
-import ArenaImage from "@/assets/images/arena-image.jpg";
 import { useState } from "react";
 import { CharacterDetail } from "@/components/global/CharacterDetail";
 import { LocationDetail } from "@/components/global/LocationDetail";
 import Map from "@/assets/images/strixhaven-map.jpeg"
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import theme from "@/styles/theme";
 import { EventDetail } from "@/components/global/EventDetail";
 
 export default function Home() {

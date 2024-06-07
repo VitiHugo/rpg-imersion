@@ -1,6 +1,5 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
-import { Editor } from '@tinymce/tinymce-react';
+import { Grid } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 export const Container = styled(Grid)(({ theme }) => ({
   width: '100%',

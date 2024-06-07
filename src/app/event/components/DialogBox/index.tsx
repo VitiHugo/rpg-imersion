@@ -41,7 +41,7 @@ export function DialogBox({ register, item, index, remove, watch, setValue }: Pr
             <Typography color={theme.palette.dark.main}>
               Dialog Image
             </Typography>
-            <DropDialogImage onChange={onImageStateChange}/>
+            <DropDialogImage size='cover' onChange={onImageStateChange}/>
           </Box>
           <ArrowDropDownSharpIcon fontSize="large" sx={{display: {md: 'none'}}}/>
           <ArrowRightSharpIcon sx={{display: {xs: 'none', md: 'inherit', fontSize: '4rem'}}}/>
@@ -82,7 +82,7 @@ export function DialogBox({ register, item, index, remove, watch, setValue }: Pr
             <Typography color={theme.palette.dark.main}>
               Dialog Image
             </Typography>
-            <DropDialogImage onChange={onImageStateChange}/>
+            <DropDialogImage size='cover' onChange={onImageStateChange}/>
           </Box>
         </>
       )}
