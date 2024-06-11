@@ -1,14 +1,16 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { DialogCard, DialogImage, EventDetailContainer, EventModalImage, EventTitleContainer } from "./styles";
 import { useTheme  } from "@mui/material/styles";
-import DemongorgonEventImage from "@/assets/images/demongorgon-event-image.jpg";
 import ProfessorOnyxPhoto from "@/assets/images/professorOnyx-photo.png";
 import ArrowRightSharpIcon from '@mui/icons-material/ArrowRightSharp';
-import Image from "next/image";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import {
+  PersonAdd as PersonAddIcon,
+  HourglassBottom as HourglassBottomIcon
+} from '@mui/icons-material';
 
 export function EventDetail() {
   const theme = useTheme();
+
   return (
     <EventDetailContainer>
       <EventModalImage sx={{backgroundImage: `url(${ProfessorOnyxPhoto.src})`}}>
@@ -35,9 +37,30 @@ export function EventDetail() {
             <b>Nev:</b> Famous last words, Adrix. Fine, let's hope our students have a good grasp of both magic and fire safety.
           </Typography>
         </DialogCard>
-        <Box>
-          
-        </Box>
+        <Grid container>
+          <Grid flexDirection='column' sm={12} md={4}>
+            <Typography >
+              Event time
+            </Typography>
+            <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
+              <Typography>
+                04:00
+              </Typography>
+              <HourglassBottomIcon color={'white'} fontSize="small" />
+            </Box>
+          </Grid>
+          <Grid flexDirection='column' sm={12} md={4}>
+            <Typography >
+              Abilities & skills
+            </Typography>
+            <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
+              <Typography>
+                Arcana
+              </Typography>
+              <HourglassBottomIcon color={'white'} fontSize="small" />
+            </Box>
+          </Grid>
+        </Grid>
         <Button 
           sx={{marginTop: '1rem'}}
           startIcon={<PersonAddIcon />}

@@ -17,6 +17,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import ForumIcon from '@mui/icons-material/Forum';
 import { DialogBox } from '../components/DialogBox';
 import DropImage from '@/components/global/DropImage';
+import ReactQuill from 'react-quill';
 
 const eventsTypes = [{
   id: 1,
@@ -46,9 +47,11 @@ export default function Save() {
     control,
     name: "dialog"
   });
-
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [checks, setChecks] = useState([] as {id: number}[]);
+
   const open = Boolean(anchorEl);
+
   const handleClickAddDialogBtn = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -67,6 +70,14 @@ export default function Save() {
 
   const handleChangeHasChecks = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHasChecks(event.target.checked);
+  };
+
+  const handleAddCheck = () => {
+    const newChecks = checks;
+
+    newChecks.push({id: newChecks.length + 1})
+
+    setChecks(() => [...newChecks])
   };
 
   const onSubmit = (data: any) => {
@@ -200,67 +211,30 @@ export default function Save() {
                 Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
               </Typography>
               {hasChecks && (
-                <Box display="flex" flexDirection="column" gap={1} mt={2}>
-                  <Box display="flex" >
-                    <CheckOption check={{
-                        type: 'Skill Check',
-                        dc: 18,
-                        description: 'Arcana Check'
-                      }} 
-                    />
-                    <Box ml={2}>
-                      <Typography
-                        color={theme.palette.dark.main}
-                        fontWeight="bold"
-                        fontSize="1.2rem"
-                      >
-                        Description
-                      </Typography>
-                      <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox 
-                          checked={hasChecks}
-                          onChange={handleChangeHasChecks}
-                          sx={{padding: 0}} 
-                        />
-                        <Typography
-                          color={theme.palette.dark.main}
-                          fontWeight="bold"
-                        >
-                          Image
-                        </Typography>
+                <>
+                  {checks?.map(check => (
+                      <Box display="flex" flexDirection="column" gap={1} mt={2}>
+                        <Box display="flex" >
+                          <CheckOption check={{
+                              type: 'Skill Check',
+                              dc: 18,
+                              description: 'Arcana Check'
+                            }} 
+                          />
+                          <Box ml={2}>
+                            <Box sx={{height: '100%', display: 'flex', width: '100%'}}>
+                              <ReactQuill 
+                                theme="snow" 
+                              />
+                            </Box>
+                          </Box>
+                        </Box>
                       </Box>
-                      <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox 
-                          checked={hasChecks}
-                          onChange={handleChangeHasChecks}
-                          sx={{padding: 0}} 
-                        />
-                        <Typography
-                          color={theme.palette.dark.main}
-                          fontWeight="bold"
-                        >
-                          Audio
-                        </Typography>
-                      </Box>
-                      <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <Checkbox 
-                          checked={hasChecks}
-                          onChange={handleChangeHasChecks}
-                          sx={{padding: 0}} 
-                        />
-                        <Typography
-                          color={theme.palette.dark.main}
-                          fontWeight="bold"
-                        >
-                          Text
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Box>
-                  <BtnAddCheck>
+                  ))}
+                  <BtnAddCheck mt={1} onClick={handleAddCheck}>
                     <AddIcon />
                   </BtnAddCheck>
-                </Box>
+                </>
               )}
             </Grid>
             
