@@ -122,7 +122,7 @@ export default function Home() {
   const router = useRouter();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
-  fetch('/api/settings').then(res => res.json()).then(res => setSettings(res));
+  fetch('/api/settings').then(res => res?.json()).then(res => setSettings(res));
   
   function handleSelectNpc(npc: Npc) {
     if(isMobile) {

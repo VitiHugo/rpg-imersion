@@ -1,11 +1,14 @@
 'use client'
 
-import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, useMediaQuery } from "@mui/material"
-import HomeIcon from '@mui/icons-material/Home';
-import SettingsIcon from '@mui/icons-material/Settings';
-import PersonIcon from '@mui/icons-material/Person';
-import LogoutIcon from '@mui/icons-material/Logout';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { Divider, Drawer, List, ListItem, useMediaQuery } from "@mui/material"
+import {
+  Home as HomeIcon,
+  Settings as SettingsIcon,
+  Person as PersonIcon,
+  Logout as LogoutIcon,
+  RecentActors as RecentActorsIcon,
+  ListAlt as ListAltIcon
+} from '@mui/icons-material';
 import { useTheme } from "@mui/material/styles";
 import { DRAWER_WIDTH, TopBar } from "./styles";
 import Link from "next/link";
@@ -17,8 +20,9 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
   { text: 'Character', href: '/character/save', icon: PersonIcon },
-  { text: 'NPCs', href: '/npcs', icon: GroupsIcon },
+  { text: 'NPCs', href: '/npcs', icon: RecentActorsIcon },
   { text: 'Events', href: '/event/save', icon: FlashOnIcon },
+  { text: 'Events', href: '/sessionSummary', icon: ListAltIcon },
 ];
 
 const PLACEHOLDER_LINKS = [

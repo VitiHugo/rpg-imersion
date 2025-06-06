@@ -1,5 +1,4 @@
 import db from '@/modules/db';
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest){
