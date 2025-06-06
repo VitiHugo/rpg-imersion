@@ -1,3 +1,4 @@
+import theme from "@/styles/theme";
 import { Box } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import Link from "next/link";
@@ -29,8 +30,8 @@ export const DayItem = styled(Box)(({ theme }) => ({
   }
 }));
 
-export const TeacherName = styled(Link)(({ theme }) => ({
-  color: theme.palette.blood.text,
+export const TeacherName = styled(Link)<{content?: string}>(({ theme, content }) => ({
+  color: content ? theme.palette.blood.text : theme.palette.grey[500],
   textDecoration: 'none',
   transition: '.3s',
 
@@ -40,7 +41,22 @@ export const TeacherName = styled(Link)(({ theme }) => ({
   }
 }));
 
+export const ClassName = styled(Link)<{content?: string}>(({ theme, content }) => ({
+  color: content ? theme.palette.blood.text : theme.palette.grey[500],
+  textDecoration: 'none',
+  transition: '.3s',
+
+  ':hover': {
+    color: alpha(theme.palette.grey[50], 0.6),
+    textDecoration: 'underline'
+  }
+}));
+
 export const TextContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
   textAlign: 'center',
   padding: '.5rem',
+  height: '100%',
 }));

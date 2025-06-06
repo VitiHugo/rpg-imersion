@@ -1,7 +1,15 @@
 import { Box, Typography } from "@mui/material";
-import { DayItem, DaysContainer, TeacherName, TextContainer, WeekScheduleCard, WeekScheduleContainer } from "./styles";
+import { ClassName, DayItem, DaysContainer, TeacherName, TextContainer, WeekScheduleCard, WeekScheduleContainer } from "./styles";
 
-const rows = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+const rows = [
+  { day: 'Sunday',    Teacher: undefined,                   Class: undefined },
+  { day: 'Monday',    Teacher: 'Yedora, Grave Gardener',    Class: 'Arcano-botany for Beginners' },
+  { day: 'Tuesday',   Teacher: 'Serafina Onyx',             Class: 'Basic Magical Auras' },
+  { day: 'Wednesday', Teacher: 'Adrix and Nev',             Class: 'Beginning Computational Magic' },
+  { day: 'Thursday',  Teacher: 'Breena',                    Class: 'Beginning Inkomancy' },
+  { day: 'Friday',    Teacher: 'Ulvida Mistcoiler',         Class: 'History of Magic and Art' },
+  { day: 'Saturday',  Teacher: 'Tullus',                    Class: 'Introduction to Archeomancy' }
+];
 
 export function WeekSchedule() {
   return (
@@ -12,14 +20,18 @@ export function WeekSchedule() {
             <DayItem key={day}>
               <Box sx={{borderBottom: '1px solid #fff', paddingBottom: '.8rem', textAlign: 'center'}}>
                 <Typography color='#fff'>
-                  {day}
+                  {day.day}
                 </Typography>
               </Box>
               <TextContainer>
-                <Typography color='#fff'>Arcano-botany for Beginners</Typography>
+                <ClassName href="" content={day.Class}>
+                  {day.Class || 'No class scheduled'}
+                </ClassName>
               </TextContainer>
               <TextContainer sx={{ marginTop: 3 }}>
-                <TeacherName href="">Yedora, Grave Gardener</TeacherName>
+                <TeacherName href="" content={day.Teacher}>
+                  {day.Teacher || 'No teacher assigned'}
+                </TeacherName>
               </TextContainer>
             </DayItem>
           ))}
