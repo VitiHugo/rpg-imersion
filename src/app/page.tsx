@@ -9,7 +9,8 @@ import WhiterBloomImage from "@/assets/images/whiterbloom.jpg";
 import { useState } from "react";
 import { CharacterDetail } from "@/components/global/CharacterDetail";
 import { LocationDetail } from "@/components/global/LocationDetail";
-import Map from "@/assets/images/strixhaven-map.jpeg"
+import { Map } from "@/components/global/Map";
+// import Map from "@/assets/images/strixhaven-map.jpeg"
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import { EventDetail } from "@/components/global/EventDetail";
 
@@ -26,16 +27,16 @@ export default function Home() {
     <MainContainer>
 
       <WeekResume />
-      {/* <Map 
+      <Map 
         setIsCharacterModalOpen={setIsCharacterModalOpen}
         setIsLocationModalOpen={setIsLocationModalOpen}
-      /> */}
+      />
       <Box sx={{width: '100%', height: '100vh', position: 'relative'}}>
-        <Image 
+        {/* <Image 
           alt="Main map"
           src={Map}
           style={{ height: '100vh', width: '100%' }}
-        />
+        /> */}
         <CharacterPin onClick={() => setIsCharacterModalOpen(true)}>
           <CharacterPinImage src={SeranaPhoto} alt="Serana Photo"/>
         </CharacterPin>

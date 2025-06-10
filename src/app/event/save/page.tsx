@@ -2,22 +2,25 @@
 
 import '@/utils/prototype';
 
-import { Box, Button, Checkbox, FormControl, Grid, InputLabel, Menu, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Checkbox, FormControl, Grid, InputLabel, Menu, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { BtnAddCheck, Container, DialogContainer, Input } from "../styles";
 import CheckOption from '../components/CheckOption';
 import { useState } from 'react';
 import { Title } from '@/components/global/Title/styles';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import CommentIcon from '@mui/icons-material/Comment';
-import MessageIcon from '@mui/icons-material/Message';
-
-import AddIcon from '@mui/icons-material/Add';
+import {
+  Diversity3 as Diversity3Icon,
+  DoneAll as DoneIcon,
+  Message as MessageIcon,
+  Comment as CommentIcon,
+  Add as AddIcon,
+  Forum as ForumIcon
+} from '@mui/icons-material';
 import { useForm, useFieldArray } from "react-hook-form";
-import ForumIcon from '@mui/icons-material/Forum';
 import { DialogBox } from '../components/DialogBox';
 import DropImage from '@/components/global/DropImage';
 import ReactQuill from 'react-quill';
+import { ApplicationCard } from '@/components/Layout/ApplicationCard';
 
 const eventsTypes = [{
   id: 1,
@@ -93,165 +96,185 @@ export default function Save() {
     }
     console.log(data)
   };
+
+  const handleSaveCheck = (check: {
+    id: number;
+  }) => {
+    
+  }
   
   return (
-    <Container sx={{display: 'flex', flexDirection: 'column'}}>
-      <Box>
-        <DropImage label="Display Image" />
-      </Box>
-      <Box sx={{padding: '1rem 1rem',}}>
-        <Title variant="h1">
-          CREATE NEW EVENT
-        </Title>
-        <form style={{width: '100%'}}>
-          <Grid container columnSpacing={2} rowSpacing={2} sx={{marginTop: '1.5rem'}}>
-            <Grid item xs={12} md={6}>
-              <Input 
-                label="Title"
-                InputLabelProps={{ shrink: true }}
-              />            
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl sx={{width: '100%'}}>
-                <InputLabel>Area</InputLabel>
-                <Select
-                  labelId="select-character-type-id"
-                  id="select-character-type-id"
-                  value={areaId}
-                  onChange={handleChangeArea}
-                  label="Area"
-                >
-                  <MenuItem value={0}>Select a Area...</MenuItem>
-                  {areas.map(area => (
-                    <MenuItem key={area.id} value={area.id}>{area.name}</MenuItem>
-                  ))}
-                </Select>  
-              </FormControl>  
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl sx={{width: '100%'}}>
-                <InputLabel>Type</InputLabel>
-                <Select
-                  labelId="select-character-type-id"
-                  id="select-character-type-id"
-                  value={eventTypeId.toString()}
-                  onChange={handleChangeType}
-                  label="Type"
-                >
-                  <MenuItem value={0}>Select a Type...</MenuItem>
-                  {eventsTypes.map(type => (
-                    <MenuItem key={type.id.toString()} value={type.id.toString()}>{type.name}</MenuItem>
-                  ))}
-                </Select>  
-              </FormControl>    
-            </Grid>
-            
-            <DialogContainer item xs={12} sx={{display: 'flex', alignItems: 'center'}}>
-              {fields.map((item, index) => (
-                <DialogBox 
-                  index={index}
-                  item={item}
-                  register={register}
-                  watch={watch}
-                  setValue={setValue}
-                  remove={remove}
-                  key={item.id}
-                />
-              ))}
-              <Button 
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClickAddDialogBtn}
-                sx={{marginTop: '2rem'}}
-                startIcon={<ForumIcon />}
-                variant='contained' 
-                color='error'
-              >
-                Add Dialog
-              </Button>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleCloseAddDialogBtn}
-                MenuListProps={{
-                  'aria-labelledby': 'basic-button',
-                }}
-              >
-                <MenuItem onClick={() => handleCloseAddDialogBtn('left')}>
-                  <MessageIcon style={{marginRight: '.5rem'}}/>
-                  Left Dialog
-                </MenuItem>
-                <MenuItem onClick={() => handleCloseAddDialogBtn('right')}>
-                  <CommentIcon style={{marginRight: '.5rem'}}/>
-                  Right Dialog
-                </MenuItem>
-              </Menu>
+    <ApplicationCard>
+      <Container sx={{display: 'flex', flexDirection: 'column'}}>
+        <Box>
+          <DropImage label="Display Image" />
+        </Box>
+        <Box sx={{padding: '1rem 1rem',}}>
+          <Title variant="h1">
+            CREATE NEW EVENT
+          </Title>
+          <form style={{width: '100%'}}>
+            <Grid container columnSpacing={2} rowSpacing={2} sx={{marginTop: '1.5rem'}}>
+              <Grid item xs={12} md={6}>
+                <Input 
+                  label="Title"
+                  InputLabelProps={{ shrink: true }}
+                />            
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl sx={{width: '100%'}}>
+                  <InputLabel>Area</InputLabel>
+                  <Select
+                    labelId="select-character-type-id"
+                    id="select-character-type-id"
+                    value={areaId}
+                    onChange={handleChangeArea}
+                    label="Area"
+                  >
+                    <MenuItem value={0}>Select a Area...</MenuItem>
+                    {areas.map(area => (
+                      <MenuItem key={area.id} value={area.id}>{area.name}</MenuItem>
+                    ))}
+                  </Select>  
+                </FormControl>  
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl sx={{width: '100%'}}>
+                  <InputLabel>Type</InputLabel>
+                  <Select
+                    labelId="select-character-type-id"
+                    id="select-character-type-id"
+                    value={eventTypeId.toString()}
+                    onChange={handleChangeType}
+                    label="Type"
+                  >
+                    <MenuItem value={0}>Select a Type...</MenuItem>
+                    {eventsTypes.map(type => (
+                      <MenuItem key={type.id.toString()} value={type.id.toString()}>{type.name}</MenuItem>
+                    ))}
+                  </Select>  
+                </FormControl>    
+              </Grid>
               
-            </DialogContainer>
-            
-            <Grid item xs={12} mt={6}>
-              <Box sx={{display: 'flex', alignItems: 'center'}}>
-                <Checkbox 
-                  checked={hasChecks}
-                  onChange={handleChangeHasChecks}
-                  sx={{padding: 0}} 
-                />
-                <Typography
-                  sx={{borderBottom: `3px solid ${theme.palette.blood.main}`, lineHeight: 1}}
-                  color={theme.palette.dark.main}
-                  fontWeight="bold"
+              <DialogContainer item xs={12} sx={{display: 'flex', alignItems: 'center'}}>
+                {fields.map((item, index) => (
+                  <DialogBox 
+                    index={index}
+                    item={item}
+                    register={register}
+                    watch={watch}
+                    setValue={setValue}
+                    remove={remove}
+                    key={item.id}
+                  />
+                ))}
+                <Button 
+                  id="basic-button"
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClickAddDialogBtn}
+                  sx={{marginTop: '2rem'}}
+                  startIcon={<ForumIcon />}
+                  variant='contained' 
+                  color='error'
                 >
-                  Checks
+                  Add Dialog
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleCloseAddDialogBtn}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <MenuItem onClick={() => handleCloseAddDialogBtn('left')}>
+                    <MessageIcon style={{marginRight: '.5rem'}}/>
+                    Left Dialog
+                  </MenuItem>
+                  <MenuItem onClick={() => handleCloseAddDialogBtn('right')}>
+                    <CommentIcon style={{marginRight: '.5rem'}}/>
+                    Right Dialog
+                  </MenuItem>
+                </Menu>
+                
+              </DialogContainer>
+              
+              <Grid item xs={12} mt={6}>
+                <Box sx={{display: 'flex', alignItems: 'center'}}>
+                  <Checkbox 
+                    checked={hasChecks}
+                    onChange={handleChangeHasChecks}
+                    sx={{padding: 0}} 
+                  />
+                  <Typography
+                    sx={{borderBottom: `3px solid ${theme.palette.blood.main}`, lineHeight: 1}}
+                    color={theme.palette.dark.main}
+                    fontWeight="bold"
+                  >
+                    Checks
+                  </Typography>
+                </Box>
+                <Typography color={theme.palette.blood.main} variant="caption">
+                  Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
                 </Typography>
-              </Box>
-              <Typography color={theme.palette.blood.main} variant="caption">
-                Tip: The character will succedd if they pass in half of the checks, rounded up. EX: 3 checks will need 2 success to complete the event. 
-              </Typography>
-              {hasChecks && (
-                <>
-                  {checks?.map(check => (
-                      <Box display="flex" flexDirection="column" gap={1} mt={2}>
-                        <Box display="flex" >
-                          <CheckOption check={{
-                              type: 'Skill Check',
-                              dc: 18,
-                              description: 'Arcana Check'
-                            }} 
-                          />
-                          <Box ml={2}>
-                            <Box sx={{height: '100%', display: 'flex', width: '100%'}}>
-                              <ReactQuill 
-                                theme="snow" 
-                              />
+                {hasChecks && (
+                  <>
+                    {checks?.map(check => (
+                        <Box mt={2}>
+                          <Box display="flex" >
+                            <Button 
+                              variant='contained' 
+                              sx={{
+                                padding: '0.2rem', 
+                                minWidth: '2rem', 
+                                marginRight: theme.spacing(1),
+                              }}
+                              color='success'
+                              onClick={() => handleSaveCheck(check)}
+                            >
+                              <DoneIcon />
+                            </Button>
+                            <CheckOption check={{
+                                type: 'Skill Check',
+                                dc: 18,
+                                description: 'Arcana Check'
+                              }} 
+                            />
+                            <Box ml={2}>
+                              <Box sx={{height: '100%', display: 'flex', width: '100%'}}>
+                                <ReactQuill 
+                                  theme="snow" 
+                                />
+                              </Box>
                             </Box>
                           </Box>
                         </Box>
-                      </Box>
-                  ))}
-                  <BtnAddCheck mt={1} onClick={handleAddCheck}>
-                    <AddIcon />
-                  </BtnAddCheck>
-                </>
-              )}
+                    ))}
+                    <BtnAddCheck mt={1} onClick={handleAddCheck}>
+                      <AddIcon />
+                    </BtnAddCheck>
+                  </>
+                )}
+              </Grid>
+              
+              <Grid item xs={12} sx={{marginTop: '1rem'}}>
+                <Button
+                  startIcon={<Diversity3Icon />}
+                  variant="contained"
+                  sx={{width: '100%'}} 
+                  onClick={handleSubmit(onSubmit)}
+                  type="button"
+                >
+                  Save
+                </Button>
+              </Grid>
             </Grid>
-            
-            <Grid item xs={12} sx={{marginTop: '1rem'}}>
-              <Button
-                startIcon={<Diversity3Icon />}
-                variant="contained"
-                sx={{width: '100%'}} 
-                onClick={handleSubmit(onSubmit)}
-                type="button"
-              >
-                Save
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-      </Box>
-    </Container>
+          </form>
+        </Box>
+      </Container>
+    </ApplicationCard>
   )
 }

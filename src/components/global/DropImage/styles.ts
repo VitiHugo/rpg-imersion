@@ -41,9 +41,12 @@ export const ImageTitle = styled(Typography)(({ theme }) => ({
   padding: '.5rem',
   borderRadius: '0 5px 5px 0',
   fontWeight: 'bold',
-  fontSize: '1.25rem',
-
+  fontSize: '1.25rem', // ~20px
   position: 'absolute',
   bottom: 0,
   left: 0,
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1.1rem', // ~16px
+    width: '35%',
+  },
 }));
