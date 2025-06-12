@@ -5,6 +5,8 @@ import { Button, Divider, Grid, TextField, useTheme } from "@mui/material";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { Container } from './styles';
 import { Controller, useForm } from 'react-hook-form';
+import { User } from '@/models/user';
+import { useEffect, useState } from 'react';
 
 interface Form {
   first_name: string;
@@ -23,9 +25,20 @@ const DEFAULT_VALUES: Form = {
 }
 
 export default function Profile() {
+  const [ user, setUser ] = useState<User>();
   const theme = useTheme();
   const form = useForm({ defaultValues: DEFAULT_VALUES });
   
+  useEffect(() => {
+    if (!user) {
+      fetch('/api/profile?id=1')
+        .then(res => res.json())
+        .then(data => {
+          setUser(data);
+        });
+    }
+  },[])
+
   return (
     <Container container>
       <Grid container columnSpacing={5} rowSpacing={2} sx={{marginTop: '1.5rem'}}>

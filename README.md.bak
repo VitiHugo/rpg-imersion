@@ -34,35 +34,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
----
-
-## Running with Docker
-
-You can run this project in a Docker container using Docker Compose. This setup uses Node.js version `22.13.1` (as specified in the Dockerfile) and exposes the application on port `3000`.
-
-### Build and Run
-
-To build and start the application with Docker Compose:
-
-```bash
-docker compose up --build
-```
-
-This will build the Docker image and start the Next.js app in a container named `typescript-app`.
-
-### Ports
-
-- The application will be available at [http://localhost:3000](http://localhost:3000)
-
-### Environment Variables
-
-- The Docker Compose file is set up to optionally use an environment file. If you have environment variables, create a `.env` file in the project root and uncomment the `env_file` line in `docker-compose.yml`.
-- By default, the container runs with `NODE_ENV=production` and `NODE_OPTIONS=--max-old-space-size=4096`.
-
-### Special Configuration
-
-- The Dockerfile uses a multi-stage build to optimize image size and security. Only production dependencies and build artifacts are included in the final image.
-- The application runs as a non-root user inside the container for improved security.
-
-No additional configuration is required to run the app with Docker beyond the steps above. If you need to customize the build or runtime environment, adjust the Dockerfile or `docker-compose.yml` as needed.
